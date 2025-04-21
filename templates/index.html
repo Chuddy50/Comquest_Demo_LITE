@@ -6,8 +6,10 @@
 <body>
     <h1>Welcome to Comquest Lite</h1>
     <p>What website would you like to scrape?</p>
-    <input type="text" name="index_url" value="https://news.ycombinator.com/news" size="60"><br><br>
-        <button type="submit">Hacker News</button>
+    <form action="/articles" method="get">
+        <label for="index_url">Enter Hacker News Index Page URL:</label><br>
+        <input type="text" name="index_url" value="" size="60"><br><br>
+        <button type="submit">Load Articles</button>
     </form>
 </body>
 </html>

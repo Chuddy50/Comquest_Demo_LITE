@@ -1,857 +1,793 @@
 {
-  "title": "Things Zig comptime won't do",
-  "by": "JadedBlueEyes",
-  "url": "https://matklad.github.io/2025/04/19/things-zig-comptime-wont-do.html",
+  "title": "Which year: guess which year each photo was taken",
+  "by": "trymas",
+  "url": "https://whichyr.com/",
   "blocks": [
     {
       "block": [
         {
-          "id": 43745438,
-          "author": "pron",
-          "text": "Yes! To me, the uniqueness of Zig&#x27;s comptime is a combination of two things: 1. comtpime <i>replaces</i> many other features that would be specialised in other languages with or without rich compile-time (or runtime) metaprogramming, <i>and</i> 2. comptime is referentially transparent [1], that makes it strictly &quot;weaker&quot; than AST macros, but simpler to understand; what&#x27;s surprising is just how capable you can be with a comptime mechanism with access to introspection yet without the referentially opaque power of macros. These two give Zig a unique combination of simplicity and power. We&#x27;re used to seeing things like that in Scheme and other Lisps, but the approach in Zig is very different. The outcome isn&#x27;t as general as in Lisp, but it&#x27;s powerful enough while keeping code easier to understand. You can like it or not, but it is very interesting and very novel (the novelty isn&#x27;t in the feature itself, but in the place it has in the language). Languages with a novel design and approach that you can learn in a couple of days are quite rare. [1]: In short, this means that you get no access to names or expressions, only the values they yield.",
+          "id": 43742497,
+          "author": "psittacus",
+          "text": "There&#x27;s a similar game, but for guessing both the year and the location <a href=\"https:&#x2F;&#x2F;timeguessr.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;timeguessr.com&#x2F;</a> Discussed on HN a couple of years ago too: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=37203511\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=37203511</a> edit: found another game like OP in the linked thread\n<a href=\"https:&#x2F;&#x2F;www.chronophoto.app&#x2F;game.html\" rel=\"nofollow\">https:&#x2F;&#x2F;www.chronophoto.app&#x2F;game.html</a>",
           "depth": 0,
-          "sentiment": 0.1926470588235294
+          "sentiment": -0.26666666666666666
         },
         {
-          "id": 43745928,
-          "author": "paldepind2",
-          "text": "I was a bit confused by the remark that comptime is referentially transparent. I&#x27;m familiar with the term as it&#x27;s used in functional programming to mean that an expression can be replaced by its value (stemming from it having no side-effects).  However, from a quick search I found an old related comment by you [1] that clarified this for me. If I understand correctly you&#x27;re using the term in a different (perhaps more correct&#x2F;original?) sense where it roughly means that two expressions with the same meaning&#x2F;denotation can be substituted for each other without changing the meaning&#x2F;denotation of the surrounding program. This property is broken by macros. A macro in Rust, for instance, can distinguish between `1 + 1` and `2`. The comptime system in Zig in contrast does not break this property as it only allows one to inspect values and not un-evaluated ASTs. [1]: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=36154447\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=36154447</a>",
+          "id": 43743149,
+          "author": "clippyplz",
+          "text": "Another for year + location <a href=\"https:&#x2F;&#x2F;whentaken.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;whentaken.com&#x2F;</a>",
           "depth": 1,
-          "sentiment": -0.0022435897435897443
+          "sentiment": 0.0
         },
         {
-          "id": 43746707,
-          "author": "pron",
-          "text": "Yes, I am using the term more correctly (or at least more generally), although the way it&#x27;s used in functional programming is a special case. A referentially transparent term is one whose sub-terms can be replaced by their references without changing the reference of the term as a whole. A functional programming language is simply one where all references are values or &quot;objects&quot; <i>in the programming language itself</i>. The expression `i++` in C is not a value <i>in C</i> (although it is a &quot;value&quot; in some semantic descriptions of C), yet a C expression that contains `i++` and cannot distinguish between `i++` and any other C operation that increments i by 1, is referentially transparent, which is pretty much all C expressions except for those involving C macros. Macros are not referentially transparent because they can distinguish between, say, a variable whose <i>name</i> is `foo` and is equal to 3 and a variable whose name is `bar` and is equal to 3. In other words, their outcome may differ not just by what is being referenced (3) but also by <i>how</i> it&#x27;s referenced (`foo` or `bar`), hence they&#x27;re referentially opaque.",
+          "id": 43743521,
+          "author": "airstrike",
+          "text": "Holy, I was off by 7 years and 427km on my first guess and I don&#x27;t want to play anymore because I&#x27;ve surely peaked",
           "depth": 2,
-          "sentiment": 0.11593406593406594
+          "sentiment": 0.375
         },
         {
-          "id": 43746591,
-          "author": "deredede",
-          "text": "Those are equivalent, I think. If you can replace an expression by its value, any two expressions with the same value are indistinguishable (and conversely a value is an expression which is its own value).",
+          "id": 43743701,
+          "author": "kQq9oHeAz6wLLS",
+          "text": "I just got one that was off by 2 years and 24.2 <i>meters</i>, but it was kinda cheaty because it showed Barbara Bush on the South lawn of the White House.",
+          "depth": 3,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43745779,
+          "author": "tecleandor",
+          "text": "Seems like they&#x27;re &quot;season photos&quot;, so a lot of Easter and Holy Week celebrations today. I have to say I got almost perfect a Holy Week celebration in Sevilla in the 1920&#x27;s (I&#x27;m Spanish, so only some hundred meters away but kinda wild guess for the year and only was two years off), and pointed Mexico instead of Guatemala for another, but nailed the year (1981) for a grand total of 902 out of 1000 points. That was fun!",
+          "depth": 4,
+          "sentiment": 0.246875
+        },
+        {
+          "id": 43747274,
+          "author": "magneticnorth",
+          "text": "Ha, I just got that same one! I managed to guess the year (1&#x2F;4 chance), and only 15.5 meters off.",
+          "depth": 4,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43744338,
+          "author": "airstrike",
+          "text": "lol nicely done I only immigrated to the US in my adult life and I can&#x27;t say I recognize Barbara Bush at a glance, so I was _also_ off by a few years and a few km on that one :( but still a lot of fun!",
+          "depth": 4,
+          "sentiment": 0.09062500000000001
+        },
+        {
+          "id": 43743336,
+          "author": "8organicbits",
+          "text": "The whole collection is great: <a href=\"https:&#x2F;&#x2F;whentaken.com&#x2F;teuteuf-games\" rel=\"nofollow\">https:&#x2F;&#x2F;whentaken.com&#x2F;teuteuf-games</a>",
+          "depth": 2,
+          "sentiment": 0.5
+        },
+        {
+          "id": 43747463,
+          "author": "yubblegum",
+          "text": "I had to close it - the ads are all over the place.",
+          "depth": 2,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43743518,
+          "author": "kentimental",
+          "text": "<a href=\"https:&#x2F;&#x2F;pointguessr.com\" rel=\"nofollow\">https:&#x2F;&#x2F;pointguessr.com</a> is another one, it&#x27;s like timeguessr but with real-time co-op functionality",
+          "depth": 2,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.09458333333333332
+    },
+    {
+      "block": [
+        {
+          "id": 43742422,
+          "author": "TrackerFF",
+          "text": "One interesting observation is how much less variation there has been in clothes for the past 20 years or so. Someone from 2005 could look completely undisguisable from someone today, by just wearing regular non-fashion forward 2005 clothes. Same goes for haircuts. Same can&#x27;t really said about someone from 1955 and 1975, 1980 - 2000, etc. edit: Score\n4695\nAvg. Years Off\n3.0",
+          "depth": 0,
+          "sentiment": 0.04791666666666668
+        },
+        {
+          "id": 43742760,
+          "author": "jillesvangurp",
+          "text": "It&#x27;s an interesting phenomenon that you can observe with other things as well like tastes in music. I think it has something to do with people having access to about sixty years of people trying out just about everything they could think off. It&#x27;s all been done before at this point and it&#x27;s all available in new and fresh forms. So, it&#x27;s no longer about collectively picking something that is genuinely new but individuals cherry-picking whatever that they like. And it helps of course that we&#x27;re not funneling media through a handful of TV channels, newspapers, etc. anymore like we used to. So people cherry pick where they get their information as well.",
+          "depth": 1,
+          "sentiment": 0.2246212121212121
+        },
+        {
+          "id": 43743433,
+          "author": "conception",
+          "text": "Probably more that\u2019s it\u2019s much easier to market and sell something that\u2019s been done before than come up with something new. Also our supply chains are highly specialized for the stuff we currently make. In 3-5 years we will see bell shaped pants back again as we go from 90\u2019s repeats to 00\u2019s repeats which were 70\u2019s repeats. Etc etc.",
+          "depth": 2,
+          "sentiment": 0.16606060606060605
+        },
+        {
+          "id": 43743716,
+          "author": "HelloMcFly",
+          "text": "Perhaps another less depressing reason is the intersection of two things: 1) For all its negatives, online culture makes it easier to find and acknowledge different groups with different tastes that share yours, you&#x27;re not as subject to having to &quot;fit in&quot; just with those near you. Maybe another way to say it is that fewer things are &quot;weird&quot; because it&#x27;s easy to find others doing something similar 2) The availability of styles is not quite as bottlenecked into a limited number of taste-makers like it used to be.",
+          "depth": 3,
+          "sentiment": -0.05238095238095237
+        },
+        {
+          "id": 43745429,
+          "author": "computerdork",
+          "text": "For me, think it&#x27;s probably more your second idea, that we&#x27;re not funneling media through a handful of TV channels, newspapers, etc. anymore like we used to. This creates (for better or worse) more of a &quot;group think&quot; mentality, since they&#x27;ve all seen the same tv shows and movies, and become more in sync with their views on all things, cultural, political... So people&#x27;s sense of fashion is also in sync as well as the need to fit in.",
+          "depth": 2,
+          "sentiment": 0.21000000000000002
+        },
+        {
+          "id": 43743413,
+          "author": "numa7numa7",
+          "text": "&gt; It&#x27;s all been done before Until something new is done ;) The sound pallette is just about infinite with what&#x27;s possible.s. I think modern music has become homogenous because true art is risky and won&#x27;t pass a modern focus group.",
+          "depth": 2,
+          "sentiment": 0.25606060606060604
+        },
+        {
+          "id": 43743775,
+          "author": "dgfitz",
+          "text": "I keep waiting for inside-out clothes to be a thing. Hipsters were getting close at one point.",
+          "depth": 3,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43744580,
+          "author": "fsckboy",
+          "text": "back around 2002 I had some T shirts from the Gap (so, pretty mainstream) that had the visible stitching and tags look like the shirt was inside out; sort of a duplicate in that if you actually wore them inside out they still looked inside out. the only way to really tell was the little washing instructions tag on the inside. i really liked them, was sad when they went away",
+          "depth": 4,
+          "sentiment": 0.045312500000000006
+        },
+        {
+          "id": 43746238,
+          "author": "dredmorbius",
+          "text": "Clothing variation has a lot to do with not only <i>fashions</i> but <i>fabrics</i>. Considered over a longer timescale, up through the late 19th century, the principle options for clothing were cotton, flax, silk, wool, leather, grasses (in some regions), and metal, with very few other options. Viscose rayon was the first <i>synthetic</i> fibre created, in 1899.  It was followed by Nylon (1930s) which pressaged a slew of additional synthetics, notably polyester.  Adoption was somewhat slowed by various factors, including WWII, but by the 1960s synthetic fabrics and brilliant dyes were exploding into popularity. Flagrant use of synthetics faded somewhat through the 1970s and 1980s, with fabric blends and natural fabrics becoming more prevalent (yes, I&#x27;m aware that the leisure suit was prominent in the 1970s, but it was <i>less</i> so by the end of the decade). There&#x27;ve been variations in specific styles since, though most to my eye have been evocative of earlier 20th-century periods since the 1990s, rather than distinctively original.  (I&#x27;m far from an expert in clothing fashion, take with heaping handfuls of salt.) Other scene-setting elements include architectural styles (notably houses in the West), automobiles, and since ~2000, the presence and style of handheld mobile devices, smartphones after about 2010.  Camera styles would be a useful indicator for much of the 1900s (&quot;Brownie&quot; box cameras, SLRs, &quot;Instamatics&quot;, and the like).",
+          "depth": 1,
+          "sentiment": 0.20977272727272728
+        },
+        {
+          "id": 43742581,
+          "author": "2mlWQbCK",
+          "text": "Is that really true? It is true for me, but I always assumed that is just because I were younger last century. In 1990 I could easily tell if someone was looking like 1980, but today I could never guess if someone looked like 2015 or 2025. I would be happy to learn that this is because fashion actually slowed down, but until proven wrong I will just assume it is because I am older and not paying attention.",
+          "depth": 1,
+          "sentiment": 0.14444444444444443
+        },
+        {
+          "id": 43746220,
+          "author": "rafram",
+          "text": "It\u2019s because you were younger. As a \u201cGen Z\u201d person, there\u2019s a huge difference between 2010s fashions and the fashions of today.",
+          "depth": 2,
+          "sentiment": 0.19999999999999998
+        },
+        {
+          "id": 43742671,
+          "author": "Jensson",
+          "text": "&gt;  could never guess if someone looked like 2015 or 2025. If you don&#x27;t think the younger generation dress crazily then fashion didn&#x27;t change. Every previous generation thought the next generations clothes were crazy.",
+          "depth": 2,
+          "sentiment": -0.2733333333333333
+        },
+        {
+          "id": 43742672,
+          "author": "simgt",
+          "text": "&gt; I could never guess if someone looked like 2015 or 2025 It&#x27;s the length of the socks",
+          "depth": 2,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43743115,
+          "author": "trinix912",
+          "text": "And the width of the pants",
+          "depth": 3,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43745522,
+          "author": "btbuildem",
+          "text": "And the length of the pants vs the socks",
+          "depth": 4,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43743743,
+          "author": "thfuran",
+          "text": "How long are socks supposed to be now?",
+          "depth": 3,
+          "sentiment": -0.05
+        },
+        {
+          "id": 43744137,
+          "author": "manfromchina1",
+          "text": "Apparently Gen Z prefer crew socks as opposed to millennial ankle socks.",
+          "depth": 4,
+          "sentiment": 0.05
+        },
+        {
+          "id": 43742854,
+          "author": "calderwoodra",
+          "text": "It&#x27;s easier to identify women&#x27;s fashion among millennials imo: 2000&#x27;s: jeans 2010&#x27;s: leggings 2020&#x27;s: not those",
+          "depth": 2,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43744648,
+          "author": "I-M-S",
+          "text": "I would say athleisure is a recent development. 10 years ago you&#x27;d see far fewer women wearing tight leggings outside the gym. Heck, even in gyms you&#x27;d be hard pressed to see the kind of tank tops and sport bras you regularly see nowadays [1] N.B. I&#x27;m just noting the phenomenon, not commenting on its merits [1] <a href=\"https:&#x2F;&#x2F;www.vice.com&#x2F;en&#x2F;article&#x2F;women-are-intimidating-men-with-workout-bikinis-says-gym-owner&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.vice.com&#x2F;en&#x2F;article&#x2F;women-are-intimidating-men-w...</a>",
+          "depth": 1,
+          "sentiment": 0.032823129251700674
+        },
+        {
+          "id": 43746025,
+          "author": "Oreb",
+          "text": "I\u2019ve never seen women wearing that kind of outfits in gyms in Norway or France, but I see it all the time online. Is it an American thing?",
           "depth": 2,
           "sentiment": 0.3
         },
         {
-          "id": 43747250,
-          "author": "WalterBright",
-          "text": "It&#x27;s not novel. D pioneered compile time function execution (CTFE) back around 2007. The idea has since been adopted in many other languages, like C++. One thing it is used for is generating string literals, which then can be fed to the compiler. This takes the place of macros. CTFE is one of D&#x27;s most popular and loved features.",
-          "depth": 1,
-          "sentiment": 0.3625
-        },
-        {
-          "id": 43747875,
-          "author": "msteffen",
-          "text": "If I understand TFA correctly, the author claims that D\u2019s approach is actually different: <a href=\"https:&#x2F;&#x2F;matklad.github.io&#x2F;2025&#x2F;04&#x2F;19&#x2F;things-zig-comptime-wont-do.html#:~:text=For%20example%2C%20D%20mixins%20work%20that%20way\" rel=\"nofollow\">https:&#x2F;&#x2F;matklad.github.io&#x2F;2025&#x2F;04&#x2F;19&#x2F;things-zig-comptime-won...</a> \u201cIn contrast, there\u2019s absolutely no facility for dynamic source code generation in Zig. You just can\u2019t do that, the feature isn\u2019t! [sic] Zig has a completely different feature, partial evaluation&#x2F;specialization, which, none the less, is enough to cover most of use-cases for dynamic code generation.\u201d",
-          "depth": 2,
-          "sentiment": 0.014814814814814812
-        },
-        {
-          "id": 43748490,
-          "author": "WalterBright",
-          "text": "The partial evaluation&#x2F;specialization is accomplished in D using a template. The example from the link: <pre><code>    fn f(comptime x: u32, y: u32) u32 {\n        if (x == 0) return y + 1;\n        if (x == 1) return y * 2;\n        return y;\n    }\n</code></pre>\nand in D: <pre><code>    uint f(uint x)(uint y) {\n        if (x == 0) return y + 1;\n        if (x == 1) return y * 2;\n        return y;\n    }\n</code></pre>\nThe two parameter lists make it a function template, the first set of parameters are the template parameters, which are compile time. The second set are the runtime parameters. The compile time parameters can also be types, and aliased symbols.",
+          "id": 43746083,
+          "author": "I-M-S",
+          "text": "Can&#x27;t comment on the USA, but I&#x27;m seeing a fair number of them in Canada and (somewhat less commonly) in Croatia.",
           "depth": 3,
-          "sentiment": 0.0875
+          "sentiment": 0.07777777777777778
         },
         {
-          "id": 43747836,
-          "author": "az09mugen",
-          "text": "A little bit out of context, I just want to thank you and all the contributors for the D programming language.",
-          "depth": 2,
-          "sentiment": -0.1875
-        },
-        {
-          "id": 43746682,
-          "author": "cannabis_sam",
-          "text": "Regarding 2. How are comptime values restricted to total computations? Is it just by the fact that the compiler actually finished, or are there any restrictions on comptime evaluations?",
-          "depth": 1,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43746763,
-          "author": "pron",
-          "text": "They don&#x27;t need to be restricted to total computation to be referentially transparent. Non-termination is also a reference.",
-          "depth": 2,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43745704,
-          "author": "User23",
-          "text": "Has anyone grafted Zig style macros into Common Lisp?",
-          "depth": 1,
+          "id": 43746354,
+          "author": "MzxgckZtNqX5i",
+          "text": "Not uncommon in Norway, at least at few gyms I&#x27;ve been to after they reopened after COVID.",
+          "depth": 3,
           "sentiment": -0.3
         },
         {
-          "id": 43746089,
-          "author": "Conscat",
-          "text": "The Scopes language might be similar to what you&#x27;re asking about. Its notion of &quot;spices&quot; which complement the &quot;sugars&quot; feature is a similar kind of constant evaluation. It&#x27;s not a Common Lisp dialect, though, but it is sexp based.",
+          "id": 43743083,
+          "author": "cheschire",
+          "text": "Well there&#x27;s very little &quot;common&quot; cultural influence these days. It used to be that you could see a significant episode of a TV show and EVERYONE was talking about it the next day in the office. Now you&#x27;re lucky if you can even find one person that has seen the show you&#x27;re even talking about, let alone if they are &quot;caught up&quot; on it since many people prefer to buffer a few episodes while they watch other things.",
+          "depth": 1,
+          "sentiment": 0.09244791666666666
+        },
+        {
+          "id": 43743396,
+          "author": "victor106",
+          "text": "Agreed, I think the last of the shows where everyone talked about was Game of Thrones.",
           "depth": 2,
-          "sentiment": 0.15
+          "sentiment": -0.2
         },
         {
-          "id": 43745832,
-          "author": "toxik",
-          "text": "Isn\u2019t this kind of thing sort of the default thing in Lisp? Code is data so you can transform it.",
+          "id": 43742891,
+          "author": "pyb",
+          "text": "This cultural phenomenon is sometimes called &quot;the Long 90s&quot;",
+          "depth": 1,
+          "sentiment": 0.025
+        },
+        {
+          "id": 43743458,
+          "author": "ksec",
+          "text": "&gt;edit: Score 4695 Avg. Years Off 3.0 How is that even possible? Only three years off? I thought guessing it which tens would be good enough. Getting the last digit right is impossible without blind luck? Or am I missing something?",
+          "depth": 1,
+          "sentiment": -0.04232804232804233
+        },
+        {
+          "id": 43743562,
+          "author": "lolinder",
+          "text": "I got 3.2. Spoilers below. Round 1 I just guessed in the middle of the 70s. Round 2 I was 5 years off, but I should have been able to get closer if I&#x27;d slowed down. Someone with a better knowledge of modern Middle Eastern uprisings or Arabic could have read the signs, but also the tech in everyone&#x27;s hands was pretty closely dated. Round 3 was pretty clearly the London Blitz\u2014the uniform was WW2 era and people were piled on top of each other in a London Tube station\u2014which narrowed it down to basically a single year. Round 4 was another guess-the-decade shot, I was 6 years off (I guessed 1940). Had I thought about it harder it would have been unlikely to have been taken during WW2, which would have bumped my guess up a few years to be closer. Round 5 was a bunch of protesters who were pretty clearly in the mid-to-late 2000s (cell phone in the background), and the topic of their protest was gay marriage which had a single very important flashpoint in that decade with Prop 8 in 2008.",
           "depth": 2,
-          "sentiment": 0.6
+          "sentiment": 0.04644993894993895
         },
         {
-          "id": 43746555,
-          "author": "fn-mote",
-          "text": "There are no limitations on the transformations in lisp. That can make macros very hard to understand. And hard for later program transformers to deal with. The innovation in Zig is the restrictions that limit the power of macros.",
+          "id": 43743962,
+          "author": "ksec",
+          "text": "Round 1 was the same. Round 2 I guessed it was something to do with Arab Spring but without looking up the year of it happened I remember it was late 00s or early 10s so I put 2010. Round 3 &gt;and people were piled on top of each other in a London Tube station\u2014which narrowed it down to basically a single year. Not sure that is a knowledge I know but I only guess it was WWII, again without looking it up I only remember it as the 40s. Round 4 I had the same thought so I guess something like 1960s because I thought it wasn&#x27;t WWII. Round 5, not from US so I only know &#x2F; heard of Prop 8 when Mozilla fired their CTO Brendan Eich. I thought it happened in early to mid 2010s.",
           "depth": 3,
-          "sentiment": -0.22361111111111112
+          "sentiment": -0.06326232247284878
         },
         {
-          "id": 43747714,
-          "author": "TinkersW",
-          "text": "Lisp is so powerful, but without static types you can&#x27;t even do basic stuff like overloading, and have to invent a way to even check the type(for custom types) so you can branch on type.",
+          "id": 43743525,
+          "author": "macintux",
+          "text": "I averaged 5 years off, but my average would have been much better without one photo that I botched by 16 years because I&#x27;m unfamiliar with early 19th century swimsuit styles. There were 2 major world events represented, that helps. Clothing style helps.",
+          "depth": 2,
+          "sentiment": 0.128125
+        },
+        {
+          "id": 43743588,
+          "author": "earthtograndma",
+          "text": "If you guessed the 19th century, you were off by a bit more than 16 years.",
           "depth": 3,
-          "sentiment": 0.26666666666666666
-        },
-        {
-          "id": 43748318,
-          "author": "wild_egg",
-          "text": "&gt; but without static types So add static types. <a href=\"https:&#x2F;&#x2F;github.com&#x2F;coalton-lang&#x2F;coalton\">https:&#x2F;&#x2F;github.com&#x2F;coalton-lang&#x2F;coalton</a>",
-          "depth": 4,
           "sentiment": 0.5
         },
         {
-          "id": 43747885,
-          "author": "dokyun",
-          "text": "&gt; Lisp is so powerful, but &lt;tired old shit from someone who&#x27;s never used Lisp&gt;. You use defmethod for overloading. Types check themselves.",
+          "id": 43743632,
+          "author": "macintux",
+          "text": "And here I complain about people erroneously specifying EST all summer along. They\u2019re only off by 1 hour.",
           "depth": 4,
+          "sentiment": -0.25
+        },
+        {
+          "id": 43743738,
+          "author": "kQq9oHeAz6wLLS",
+          "text": "I skip specifying Standard or Daylight time altogether, and just use ET (or CT, MT, etc). Much easier on my brain, and nobody actually cares which they&#x27;re in at the moment.",
+          "depth": 5,
           "sentiment": 0.06666666666666667
         },
         {
-          "id": 43745860,
-          "author": "Zambyte",
-          "text": "There isn&#x27;t really as clear of a distinction between &quot;runtime&quot; and &quot;compile time&quot; in Lisp. The comptime keyword is essentially just the opposite of quote in Lisp. Instead of using comptime to say what should be evaluated early, you use quote to say what should be evaluated later. Adding comptime to Lisp would be weird (though obviously not impossible, because it&#x27;s Lisp), because that is essentially the default for expressions.",
-          "depth": 2,
-          "sentiment": 0.004166666666666666
-        },
-        {
-          "id": 43746099,
-          "author": "Conscat",
-          "text": "The truth of this varies between Lisp based languages.",
-          "depth": 3,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43747113,
-          "author": "keybored",
-          "text": "I\u2019ve never managed to understand your year-long[1] manic praise over this feature. Given that you\u2019re a language implementer. It\u2019s very cool to be able to just say \u201cY is just X\u201d.  You know in a museum.  Or at a distance.  Not necessarily as something you have to work with daily.  Because I would rather take something ranging from Java\u2019s interface to Haskell\u2019s typeclasses since once implemented, they\u2019ll just work.  With comptime types, according to what I\u2019ve read, you\u2019ll have to bring your T to the comptime and find out right then and there if it will work.  Without enough foresight it might not. That\u2019s not something I want.  I just want generics or parametric polymorphism or whatever it is to work once it compiles.  If there\u2019s a &lt;T&gt; I want to slot in T without any surprises.  And whether Y is just X is a very distant priority at that point.  Another distant priority is if generics and whatever else <i>is all just X undernea</i>... I mean just let me use the language declaratively. I felt like I was on the idealistic end of the spectrum when I saw you criticizing other languages that are not installed on 3 billion devices as too academic.[2]  Now I\u2019m not so sure? [1] <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=24292760\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=24292760</a> [2] But does Scala technically count since it\u2019s on the JVM though?",
-          "depth": 1,
-          "sentiment": 0.08943452380952381
-        },
-        {
-          "id": 43748238,
-          "author": "hitekker",
-          "text": "Do you have a source for &quot;criticizing other languages not installed on 3 billion devices as too academic&quot; ? Without more context, this comment sounds like rehashing old (personal?) drama.",
-          "depth": 2,
-          "sentiment": 0.11875
-        },
-        {
-          "id": 43747748,
-          "author": "ww520",
-          "text": "I&#x27;m sorry but I don&#x27;t understand what you&#x27;re complaining about comptime. All the stuff you said you wanted to work (generic, parametric polymorphism, slotting &lt;T&gt;, etc) just work with comptime.  People are praising about comptime because it&#x27;s a simple mechanism that replacing many features in other languages that require separate language features.  Comptime is very simple and natural to use.  It can just float with your day to day programming without much fuss.",
-          "depth": 2,
-          "sentiment": 0.021875000000000002
-        }
-      ],
-      "avg_sentiment": 0.09898185284214697
-    },
-    {
-      "block": [
-        {
-          "id": 43745091,
-          "author": "hiccuphippo",
-          "text": "The quote in Spanish about a Norse god is from a story by Jorge Luis Borges, here&#x27;s an English translation: <a href=\"https:&#x2F;&#x2F;biblioklept.org&#x2F;2019&#x2F;04&#x2F;02&#x2F;the-disk-a-very-short-story-by-jorge-luis-borges&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;biblioklept.org&#x2F;2019&#x2F;04&#x2F;02&#x2F;the-disk-a-very-short-sto...</a>",
-          "depth": 0,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43746245,
-          "author": "kruuuder",
-          "text": "If you have read the story and, like me, are still wondering which part of the story is the quote at the top of the post: &quot;It&#x27;s Odin&#x27;s Disc. It has only one side. Nothing else on Earth has only one side.&quot;",
-          "depth": 1,
-          "sentiment": 0.16666666666666666
-        },
-        {
-          "id": 43747092,
-          "author": "tines",
-          "text": "A mobius strip does!",
-          "depth": 2,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43745676,
-          "author": "_emacsomancer_",
-          "text": "And in Spanish here: <a href=\"https:&#x2F;&#x2F;www.poeticous.com&#x2F;borges&#x2F;el-disco?locale=es\" rel=\"nofollow\">https:&#x2F;&#x2F;www.poeticous.com&#x2F;borges&#x2F;el-disco?locale=es</a> (Not having much Spanish, I at first thought &quot;Odin&#x27;s disco(teque)&quot; and then &quot;no, that doesn&#x27;t make sense about sides&quot;, but then, surely primed by English &quot;disco&quot;, thought &quot;it must mean Odin&#x27;s record&#x2F;lp&#x2F;album&quot;.)",
-          "depth": 1,
-          "sentiment": 0.07291666666666667
-        },
-        {
-          "id": 43745774,
-          "author": "wiml",
-          "text": "Odin&#x27;s records have no B-sides, because everything Odin writes is fire!",
-          "depth": 2,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43746803,
-          "author": "tialaramex",
-          "text": "Back when things really had A and B sides, it was moderately common for big artists to release a &quot;Double A&quot; in which both titles were heavily promoted, e.g. Nirvana&#x27;s &quot;All Apologies&quot; and &quot;Rape Me&quot; are a double A, the Beatles &quot;Penny Lane&quot; and &quot;Strawberry Fields Forever&quot; likewise.",
-          "depth": 3,
-          "sentiment": -0.049999999999999996
-        },
-        {
-          "id": 43747689,
-          "author": "Validark",
-          "text": "The story is indeed very short, but hits hard. Odin reveals himself and his mystical disc that he states makes him king as long as he holds it. The Christian hermit (by circumstance) who had previously received him told him he didn&#x27;t worship Him, that he worshiped Christ instead, and then murdered him for the disc in the hopes he could sell it for a bunch of money. He dumped Odin&#x27;s body in the river and never found the disc. The man hated Odin to this day for not just handing over the disc to him. I wonder if there&#x27;s some message in here. As a modern American reader, if I believed the story was contemporary, I&#x27;d think it&#x27;s making a point about Christianity substituting honor for destructive greed. That a descendant of the wolves of Odin would worship a Hebrew instead and kill him for a bit of money is quite sad, but I don&#x27;t think it an inaccurate characterization. There&#x27;s also the element of resentment towards Odin for not just handing over monetary blessings. That&#x27;s sad to me as well. Part of me hopes that one day Odin isn&#x27;t held in such contempt.",
-          "depth": 1,
-          "sentiment": -0.2032051282051282
-        }
-      ],
-      "avg_sentiment": -0.001945970695970697
-    },
-    {
-      "block": [
-        {
-          "id": 43745670,
-          "author": "ephaeton",
-          "text": "zig&#x27;s comptime has some (objectively: debatable? subjectively: definite) shortcomings that the zig community then overcomes with zig build to generate code-as-strings to be lateron @imported and compiled. Practically, &quot;zig build&quot;-time-eval. As such there&#x27;s another &#x27;comptime&#x27; stage with more freedom, unlimited run-time (no @setEvalBranchQuota), can do IO (DB schema, network lookups, etc.) but you lose the freedom to generate zig types as values in the current compilation; instead of that you of course have the freedom to reduce-&gt;project from target compiled semantic back to input syntax down to string to enter your future compilation context again. Back in the day, where I had to glue perl and tcl via C at one point in time, passing strings for perl generated through tcl is what this whole thing reminds me of. Sure it works. I&#x27;m not happy about it. There&#x27;s _another_ &quot;macro&quot; stage that you can&#x27;t even see in your code (it&#x27;s just @import). The zig community bewilders me at times with their love for lashing themselves. The sort of discussions which new sort of self-harm they&#x27;d love to enforce on everybody is borderline disturbing.",
-          "depth": 0,
-          "sentiment": 0.08005050505050504
-        },
-        {
-          "id": 43746029,
-          "author": "bsder",
-          "text": "&gt; The zig community bewilders me at times with their love for lashing themselves. The sort of discussions which new sort of self-harm they&#x27;d love to enforce on everybody is borderline disturbing. Personally, I find the idea that a <i>compiler</i> might be able to reach outside itself completely terrifying (Access the network or a database? Are you nuts?). That should be 100% the job of a build system. Now, you can certainly argue that generating a text file may or may not be the best way to reify the result back into the compiler.  However, what the compiler gets and generates should be completely deterministic.",
-          "depth": 1,
-          "sentiment": 0.12088744588744589
-        },
-        {
-          "id": 43746553,
-          "author": "ephaeton",
-          "text": "&gt; Personally, I find the idea that a compiler might be able to reach outside itself completely terrifying (Access the network or a database? Are you nuts?). What is &quot;itself&quot; here, please? Access a static &#x27;external&#x27; source? Access a dynamically generated &#x27;external&#x27; source? If that file is generated in the build system &#x2F; build process as derived information, would you put it under version control? If not, are you as nuts as I am? Some processes require sharp tools, and you can&#x27;t always be afraid to handle one. If all you have is a blunt tool, well, you know how the saying goes for C++. &gt; However, what the compiler gets and generates should be completely deterministic. The zig community treats &#x27;zig build&#x27; as &quot;the compile step&quot;, ergo what &quot;the compiler&quot; gets ultimately is decided &quot;at compile, er, zig build time&quot;. What the compiler gets, i.e., what zig build generates within the same user-facing process, is not deterministic. Why would it be. Generating an interface is something that you want to be part of a streamline process. Appeasing C interfaces will be moving to a zig build-time multi-step process involving zig&#x27;s &#x27;translate-c&#x27; whose output you then import into your zig file. You think anybody is going to treat that output differently than from what you&#x27;d get from doing this invisibly at comptime (which, btw, is what practically happens now)?",
-          "depth": 2,
-          "sentiment": -0.056818181818181816
-        },
-        {
-          "id": 43747717,
-          "author": "bsder",
-          "text": "&gt; The zig community treats &#x27;zig build&#x27; as &quot;the compile step&quot;, ergo what &quot;the compiler&quot; gets ultimately is decided &quot;at compile, er, zig build time&quot;. What the compiler gets, i.e., what zig build generates within the same user-facing process, is not deterministic. I know of no build system that is completely deterministic unless you go through the process of <i>very</i> explicitly pinning things.  Whereas practically <i>every</i> compiler is deterministic (gcc, for example, would rebuild itself 3 times and compare the last two to make sure they were byte identical).  Perhaps there needs to be &quot;zigmeson&quot; (work out and generate dependencies) and &quot;zigninja&quot; (just call compiler on static resources) to set things apart, but it doesn&#x27;t change the fact that &quot;zig build&quot; dispatches to a &quot;build system&quot; and &quot;zig&quot;&#x2F;&quot;zig cc&quot; dispatches to a &quot;compiler&quot;. &gt; Appeasing C interfaces will be moving to a zig build-time multi-step process involving zig&#x27;s &#x27;translate-c&#x27; whose output you then import into your zig file. You think anybody is going to treat that output differently than from what you&#x27;d get from doing this invisibly at comptime (which, btw, is what practically happens now)? That&#x27;s a completely different issue, but it illustrates the problem <i>perfectly</i>. The problem is that @cImport() can be called from two different modules on the same file.  What about if there are three?  What about if they need different versions?  What happens when a previous @cImport modifies how that file translates.  How do you do link time optimization on that? This is <i>exactly</i> why your compiler needs to run on static resources that have already been resolved.  I&#x27;m fine with my build system calling a SAT solver to work out a Gordian Knot of dependencies.  I am <i>not</i> fine with my compiler needing to do that resolution.",
-          "depth": 3,
-          "sentiment": 0.15111111111111114
-        },
-        {
-          "id": 43748448,
-          "author": "eddythompson80",
-          "text": "&gt; Personally, I find the idea that a compiler might be able to reach outside itself completely terrifying (Access the network or a database? Are you nuts?). Why though? F# has this feature called TypeProviders where you can emit types to the compiler. For example, you can do do: <pre><code>   type DbSchema = PostgresTypeProvider&lt;&quot;postgresql:&#x2F;&#x2F;postgres:...&quot;&gt;\n   type WikipediaArticle = WikipediaTypeProvider&lt;&quot;https:&#x2F;&#x2F;wikipedia.org&#x2F;wiki&#x2F;Hello&quot;&gt;\n\n</code></pre>\nand now you have a type that references that Article or that DB. You can treat it as if you had manually written all those types. You can fully inspect it in the IDE, debugger or logger. It&#x27;s a full type that&#x27;s autogenerated in a temp directory. When I first saw it, I thought it was really strange. Then thought about it abit, played with it, and thought it was brilliant. Literally one of the smartest ideas ever. It&#x27;s first class codegen framework. There were some limitations, but still. After using it in a real project, you figure out why it didn&#x27;t catch on. It&#x27;s so close, but it&#x27;s missing something. Just one thing is out of place there. The interaction is painful for anything that&#x27;s not a file source, like CsvTypeProvider or a public internet url. It does also create this odd dependenciey that your code has that can&#x27;t be source controlled or reproduced. There were hacks and workarounds, but nothing felt right for me. It was however, the best attempt at a statically typed language trying to imitate python or javascript scripting syntax. Where you just say put a db uri, and you start assuming types.",
-          "depth": 2,
-          "sentiment": 0.10119047619047619
-        },
-        {
-          "id": 43747061,
-          "author": "panzi",
-          "text": "&gt; Personally, I find the idea that a compiler might be able to reach outside itself completely terrifying (Access the network or a database? Are you nuts?). Yeah, although so can build.rs or whatever you call in your Makefile. If something like cargo would have built-in sandboxing, that would be interesting.",
-          "depth": 2,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43746364,
-          "author": "bmacho",
-          "text": "They are not advocating for IO in the compiler, but everything else that other languages can do with macros: run commands comptime, generate code, read code, modify code. It&#x27;s proven to be very useful.",
-          "depth": 2,
-          "sentiment": 0.1325
-        },
-        {
-          "id": 43747577,
-          "author": "bsder",
-          "text": "I&#x27;m going to make you defend that statement that they are &quot;useful&quot;.  I would counter than macros are &quot;powerful&quot;. However, &quot;macros&quot; are a disaster to debug in every language that they appear.  &quot;comptime&quot; sidesteps that because you can generally force it to run at runtime where your normal debugging mechanisms work just fine (returning a type being an exception). &quot;Macros&quot; generally impose extremely large cognitive overhead and making them hygienic has spawned the careers of countless CS professors.  In addition, macros often impose significant <i>compiler</i> overhead (how many crates do Rust&#x27;s proc-macros pull in?). It is not at all clear that the full power of general macros is worth the downstream grief that they cause (I also hold this position for a lot of compiler optimizations, but that&#x27;s a rant for a different day).",
-          "depth": 3,
-          "sentiment": 0.1254251700680272
-        },
-        {
-          "id": 43747350,
-          "author": "forrestthewoods",
-          "text": "&gt; Personally, I find the idea that a compiler might be able to reach outside itself completely terrifying (Access the network or a database? Are you nuts?). It\u2019s not the compiler per se. Let\u2019s say you want a build system that is capable of generating code. Ok we can all agree that\u2019s super common and not crazy. Wouldn\u2019t it be great if the code that generated Zig code also be written in Zig? Why should codegen code be written in some completely unrelated language? Why should developers have to learn a brand new language to do compile time code Gen? Why yes Rust macros I\u2019m staring angrily at you!",
-          "depth": 2,
-          "sentiment": 0.07266899766899768
-        },
-        {
-          "id": 43745717,
-          "author": "User23",
-          "text": "Learning XS (maybe with Swig?) was a great way to actually understand Perl.",
-          "depth": 1,
-          "sentiment": 0.4
-        }
-      ],
-      "avg_sentiment": 0.11270155241583812
-    },
-    {
-      "block": [
-        {
-          "id": 43744877,
-          "author": "pyrolistical",
-          "text": "What makes comptime really interesting is how fluid it is as you work. At some point you realize you need type information, so you just add it to your func params. That bubbles all the way up and you are done. Or you realize in certain situation it is not possible to provide the type and you need to solve a arch&#x2F;design issue.",
-          "depth": 0,
-          "sentiment": 0.17857142857142858
-        },
-        {
-          "id": 43745610,
-          "author": "Zambyte",
-          "text": "If the type that you&#x27;re passing as an argument is the type of another argument, you can keep the API simpler by just using @TypeOf(arg) internally in the function instead.",
-          "depth": 1,
-          "sentiment": 0.0
-        }
-      ],
-      "avg_sentiment": 0.08928571428571429
-    },
-    {
-      "block": [
-        {
-          "id": 43745047,
-          "author": "karmakaze",
-          "text": "&gt; Zig\u2019s comptime feature is most famous for what it can do: generics!, conditional compilation!, subtyping!, serialization!, ORM! That\u2019s fascinating, but, to be fair, there\u2019s a bunch of languages with quite powerful compile time evaluation capabilities that can do equivalent things. I&#x27;m curious what are these other languages that can do these things? I read HN regularly but don&#x27;t recall them. Or maybe that&#x27;s including things like Java&#x27;s annotation processing which is so clunky that I wouldn&#x27;t classify them to be equivalent.",
-          "depth": 0,
-          "sentiment": 0.371875
-        },
-        {
-          "id": 43745506,
-          "author": "foobazgt",
-          "text": "Yeah, I&#x27;m not a big fan of annotation processing either. It&#x27;s simultaneously heavyweight and unwieldy, and yet doesn&#x27;t do enough. You get all the annoyance of working with a full-blown AST, and none of the power that comes with being able to manipulate an AST. Annotations themselves are pretty great, and AFAIK, they are most widely used with reflection or bytecode rewriting instead. I get that the maintainers dislike macro-like capabilities, but the reality is that many of the nice libraries&#x2F;facilities Java has (e.g. transparent spans), just aren&#x27;t possible without AST-like modifications. So, the maintainers don&#x27;t provide 1st class support for rewriting, and they hold their noses as popular libraries do it. Closely related, I&#x27;m pretty excited to muck with the new class file API that just went GA in 24 (<a href=\"https:&#x2F;&#x2F;openjdk.org&#x2F;jeps&#x2F;484\" rel=\"nofollow\">https:&#x2F;&#x2F;openjdk.org&#x2F;jeps&#x2F;484</a>). I don&#x27;t have experience with it yet, but I have high hopes.",
-          "depth": 1,
-          "sentiment": 0.2857102272727273
-        },
-        {
-          "id": 43746810,
-          "author": "pron",
-          "text": "Java&#x27;s annotation processing is intentionally limited so that compiling with them cannot change the semantics of the Java language as defined by the Java Language Specification (JLS). Note that more intrusive changes -- including not only bytecode-rewriting agents, but also the use of those AST-modifying &quot;libraries&quot; (really, languages) -- require command-line flags that tell you that the semantics of code may be impacted by some other code that is identified in those flags. This is part of &quot;integrity by default&quot;: <a href=\"https:&#x2F;&#x2F;openjdk.org&#x2F;jeps&#x2F;8305968\" rel=\"nofollow\">https:&#x2F;&#x2F;openjdk.org&#x2F;jeps&#x2F;8305968</a>",
-          "depth": 2,
-          "sentiment": 0.10071428571428571
-        },
-        {
-          "id": 43747870,
-          "author": "foobazgt",
-          "text": "Just because something mucks with a program&#x27;s AST doesn&#x27;t mean that it&#x27;s introducing a new &quot;language&quot;. You wouldn&#x27;t call using reflection, &quot;creating a new language&quot;, either, and many of these libraries can be implemented either way. (Usually a choice between adding an additional build step, runtime overhead, and ease of implementation). It just really depends upon the details of the transform. The integrity by default JEPs are really about trying to reduce developers depending upon JDK&#x2F;JRE implementation details, for example, sun.misc.Unsafe. From the JEP: &quot;In short: The use of JDK-internal APIs caused serious migration issues, there was no practical mechanism that enabled robust security in the current landscape, and new requirements could not be met. Despite the value that the unsafe APIs offer to libraries, frameworks, and tools, the ongoing lack of integrity is untenable. Strong encapsulation and the restriction of the unsafe APIs \u2014 by default \u2014 are the solution.&quot; If you&#x27;re dependent on something like ClassFileTransformer, -javaagent, or setAccessible, you&#x27;ll just set a command-line flag. If you&#x27;re not, it&#x27;s because you&#x27;re already doing this through other means like a custom ClassLoader or a build step.",
-          "depth": 3,
-          "sentiment": 0.055506993006993015
-        },
-        {
-          "id": 43745080,
-          "author": "awestroke",
-          "text": "Rust, D, Nim, Crystal, Julia",
-          "depth": 1,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43745645,
-          "author": "elcritch",
-          "text": "Definitely, you can do most of those things in Nim without macros using templates and compile time stuff. It\u2019s preferable to macros when possible. Julia has fantastic compile time abilities as well. It\u2019s beautiful to implement an incredibly fast serde in like 10 lines without requiring other devs to annotate their packages. I wouldn\u2019t include Rust on that list if we\u2019re speaking of compile time and compile time type abilities. Last time I tried it Rust\u2019s const expression system is pretty limited. Rust\u2019s macro system likewise is also very weak. Primarily you can only get type info by directly passing the type definition to a macro, which is how derive and all work.",
-          "depth": 2,
-          "sentiment": 0.14400510204081635
-        },
-        {
-          "id": 43746822,
-          "author": "tialaramex",
-          "text": "Rust has <i>two</i> macro systems, the proc macros are allowed to do absolutely whatever they please because they&#x27;re actually executing in the compiler. Now, <i>should</i> they do anything they please? Definitely not, but they can. That&#x27;s why there&#x27;s a (serious) macro which runs your Python code, and a (joke, in the sense that you should never use it, not that it wouldn&#x27;t work) macro which replaces your running compiler with a different one so that code which is otherwise invalid will compile anyway...",
-          "depth": 3,
-          "sentiment": -0.02666666666666666
-        },
-        {
-          "id": 43746836,
-          "author": "int_19h",
-          "text": "&gt; Rust\u2019s macro system likewise is also very weak. How so? Rust procedural macros operate on token stream level while being able to tap into the parser, so I struggle to think of what they <i>can&#x27;t</i> do, aside from limitations on the syntax of the macro.",
-          "depth": 3,
-          "sentiment": 0.006249999999999978
-        },
-        {
-          "id": 43747359,
-          "author": "forrestthewoods",
-          "text": "Rust macros are a mutant foreign language. A much much better system would be one that lets you write vanilla Rust code to manipulate either the token stream or the parsed AST.",
-          "depth": 4,
-          "sentiment": 0.1875
-        },
-        {
-          "id": 43748134,
-          "author": "dwattttt",
-          "text": "...? Proc macros _are_ vanilla Rust code written to manipulate a token stream.",
-          "depth": 5,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43747055,
-          "author": "Nullabillity",
-          "text": "Rust macros don&#x27;t really understand the types involved. If you have a derive macro for <pre><code>    #[derive(MyTrait)]\n    struct Foo {\n        bar: Bar,\n        baz: Baz,\n    }\n</code></pre>\nthen your macro <i>can</i> see that it references Bar and Baz, but it can&#x27;t know <i>anything</i> about how those types are defined. Usually, the way to get around it is to define some trait on both Bar and Baz, which your Foo struct depends on, but that still only gives you access to that information at runtime, not when evaluating your macro. Another case would be something like <pre><code>    #[my_macro]\n    fn do_stuff() -&gt; Bar {\n        let x = foo();\n        x.bar()\n    }\n</code></pre>\nYour macro would be able to see that you call the functions foo() and Something::bar(), but it wouldn&#x27;t have the context to know the type of x. And even if you did have the context to be able to see the scope, you probably still aren&#x27;t going to reimplement rustc&#x27;s type inference rules just for your one macro. Scala (for example) is different: any AST node is tagged with its corresponding type that you can just ask for, along with any context to expand on that (what fields does it have? does it implement this supertype? are there any relevant implicit conversions in scope?). There are both up- and downsides to that (personally, I do quite like the locality that Rust macros enforce, for example), but Rust macros are unquestionably <i>weaker</i>.",
-          "depth": 4,
-          "sentiment": 0.16875
-        },
-        {
-          "id": 43748406,
-          "author": "elcritch",
-          "text": "Thanks, that\u2019s exactly what I was referencing. In lisp the type doesn\u2019t matter as much, just the structure, as maps or other dynamic pieces will be used. However in typed languages it matters a lot.",
-          "depth": 5,
-          "sentiment": 0.10500000000000001
-        },
-        {
-          "id": 43746241,
-          "author": "rurban",
-          "text": "Perl BEGIN blocks",
-          "depth": 2,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43747259,
-          "author": "tmtvl",
-          "text": "PPR + keyword::declare (shame that Damien didn&#x27;t actually call it keyword::keyword).",
-          "depth": 3,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43745688,
-          "author": "ephaeton",
-          "text": "well, the lisp family of languages surely can do all of that, and more. Check out, for example, clojure&#x27;s version of zig&#x27;s dropped &#x27;async&#x27;. It&#x27;s a macro.",
-          "depth": 1,
-          "sentiment": 0.5
-        }
-      ],
-      "avg_sentiment": 0.12657632942454372
-    },
-    {
-      "block": [
-        {
-          "id": 43744951,
-          "author": "ashvardanian",
-          "text": "Previous submission: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=43738703\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=43738703</a>",
-          "depth": 0,
-          "sentiment": -0.16666666666666666
-        }
-      ],
-      "avg_sentiment": -0.16666666666666666
-    },
-    {
-      "block": [
-        {
-          "id": 43744932,
-          "author": "no_wizard",
-          "text": "I like the Zig language and tooling. I do wish there was a safety mode that give the same guarantees as Rust, but it\u2019s a huge step above C&#x2F;C++. I am also extremely impressed with the Zig compiler. Perhaps the safety is the tradeoff with the comparative ease of using the language compared to Rust, but I\u2019d love the best of both worlds if it were possible",
-          "depth": 0,
-          "sentiment": 0.41428571428571426
-        },
-        {
-          "id": 43745418,
-          "author": "ksec",
-          "text": "&gt;but I\u2019d love the best of both worlds if it were possible I am just going to quote what pcwalton said the other day that perhaps answer your question. &gt;&gt; I\u2019d be much more excited about that promise [memory safety in Rust] if the compiler provided that safety, rather than asking the programmer to do an extraordinary amount of extra work to conform to syntactically enforced safety rules. Put the complexity in the compiler, dudes. &gt; That exists; it&#x27;s called garbage collection. &gt;If you don&#x27;t want the performance characteristics of garbage collection, something has to give. Either you sacrifice memory safety or you accept a more restrictive paradigm than GC&#x27;d languages give you. For some reason, programming language enthusiasts think that if you think really hard, every issue has some solution out there without any drawbacks at all just waiting to be found. But in fact, creating a system that has zero runtime overhead and unlimited aliasing with a mutable heap is as impossible as <i>finding two even numbers whose sum is odd.</i> [1] <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=43726315\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=43726315</a>",
-          "depth": 1,
-          "sentiment": 0.19318181818181823
-        },
-        {
-          "id": 43745760,
-          "author": "the__alchemist",
-          "text": "Maybe this is a bad place to ask, but: Those experienced in manual-memory langs: What in particular do you find cumbersome about the borrow system? I&#x27;ve hit some annoyances like when splitting up struct fields into params where more than one is mutable, but that&#x27;s the only friction point that comes to mind. I ask because I am obvious blind to other cases - that&#x27;s what I&#x27;m curious about! I generally find the &amp;s to be a net help even without mem safety ... They make it easier to reason about structure, and when things mutate.",
-          "depth": 2,
-          "sentiment": 0.006060606060606077
-        },
-        {
-          "id": 43745963,
-          "author": "sgeisenh",
-          "text": "Lifetime annotations can be burdensome when trying to avoid extraneous copies and they feel contagious (when you add a lifetime annotation to a frequently used type, it bubbles out to anything that uses that type unless you&#x27;re willing to use unsafe to extend lifetimes). The solutions to this problem (tracking indices instead of references) lose a lot of benefits that the borrow checker provides. The aliasing rules in Rust are also pretty strict. There are plenty of single-threaded programs where I want to be able to occasionally read a piece of information through an immutable reference, but that information can be modified by a different piece of code. This usually indicates a design issue in your program but sometimes you just want to throw together some code to solve an immediate problem. The extra friction from the borrow checker makes it less attractive to use Rust for these kinds of programs.",
-          "depth": 3,
-          "sentiment": 0.14833333333333334
-        },
-        {
-          "id": 43746402,
-          "author": "bogdanoff_2",
-          "text": "&gt;There are plenty of single-threaded programs where I want to be able to occasionally read a piece of information through an immutable reference, but that information can be modified by a different piece of code. You could do that using Cell or RefCell. I agree that it makes it more cumbersome.",
-          "depth": 4,
-          "sentiment": 0.25
-        },
-        {
-          "id": 43747347,
-          "author": "dzaima",
-          "text": "I imagine a large part is just how one is used to doing stuff. Not being forced to be explicit about mutability and lifetimes allows a bunch of neat stuff that does not translate well to Rust, even if the desired thing in question might not be hard to do in another way. (but that other way might involve more copies &#x2F; indirections, which users of manually-memory langs would (perhaps rightfully, perhaps pointlessly) desire to avoid if possible, but Rust users might just be comfortable with) This separation is also why it is basically impossible to make apples-to-apples comparisons between languages. Messy things I&#x27;ve hit (from ~5KLoC of Rust; I&#x27;m a Rust beginner, I primarily do C) are: cyclical references; a large structure that needs efficient single-threaded mutation while referenced from multiple places (i.e. must use some form of cell) at first, but needs to be sharable multithreaded after all the mutating is done; self-referential structures are roughly impossible to move around (namely, an object holding &amp;-s to objects allocated by a bump allocator, movable around as a pair, but that&#x27;s not a thing (without libraries that I couldn&#x27;t figure out at least)); and refactoring mutability&#x2F;lifetimes is also rather messy.",
-          "depth": 3,
-          "sentiment": -0.06008403361344537
-        },
-        {
-          "id": 43745891,
-          "author": "rc00",
-          "text": "&gt; What in particular do you find cumbersome about the borrow system? The refusal to accept code that the developer knows is correct, simply because it does not fit how the borrow checker wants to see it implemented. That kind of heavy-handed and opinionated supervision is overhead to productivity. (In recent times, others have taken to saying that Rust is less &quot;fun.&quot;) When the purpose of writing code is to solve a problem and not engage in some pedantic or academic exercise, there are much better tools for the job. There are also times when memory safety is not a paramount concern. That makes the overhead of Rust not only unnecessary but also unwelcome.",
-          "depth": 3,
-          "sentiment": 0.07916666666666668
-        },
-        {
-          "id": 43747477,
-          "author": "charlotte-fyi",
-          "text": "Isn&#x27;t the persistent failure of developers to &quot;know&quot; that their code is correct the entire point? Unless you have mechanical proof, in the aggregate and working on any project of non-trivial size &quot;knowing&quot; is really just &quot;assuming.&quot; This isn&#x27;t academic or pedantic, it&#x27;s a basic epistemological claim with regard to what writing software actually looks like in practice. You, in fact, do not know, and your insistence that you do is precisely the reason that you are at greater risk of creating memory safety vulnerabilities.",
-          "depth": 4,
-          "sentiment": 0.09791666666666668
-        },
-        {
-          "id": 43745915,
-          "author": "the__alchemist",
-          "text": "Thank you for the answer! Do you have an example? I&#x27;m having a fish-doesn&#x27;t-know-water problem.",
-          "depth": 4,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43746854,
-          "author": "int_19h",
-          "text": "Basically anything that involves objects mutually referencing each other.",
-          "depth": 5,
-          "sentiment": -0.125
-        },
-        {
-          "id": 43746946,
-          "author": "the__alchemist",
-          "text": "Oh, that does sound tough in rust! I&#x27;m not even sure how to approach it; good to know it&#x27;s a useful pattern in other langs.",
-          "depth": 6,
-          "sentiment": 0.21481481481481482
-        },
-        {
-          "id": 43747522,
-          "author": "int_19h",
-          "text": "Well, one can always write unsafe Rust. Although the more usual pattern here is to ditch pointers and instead have a giant array of objects referring to each other via indices into said array. But this is effectively working around the borrow checker - those indices are semantically unchecked references, and although out-of-bounds checks will prevent memory corruption, it is possible to store index to some object only for that object to be replaced with something else entirely later.",
-          "depth": 7,
-          "sentiment": 0.090625
-        },
-        {
-          "id": 43748790,
-          "author": "Cloudef",
-          "text": "&gt;unsafe rust\nWhich is worse than C",
-          "depth": 8,
-          "sentiment": -0.4
-        },
-        {
-          "id": 43747732,
-          "author": "estebank",
-          "text": "&gt; it is possible to store index to some object only for that object to be replaced with something else entirely later. That&#x27;s what generational arenas are for, at the cost of having to check for index validity on every access. But that cost is only in comparison to &quot;keep a pointer in a field&quot; with no additional logic, which is bug-prone.",
-          "depth": 8,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43746004,
-          "author": "Ygg2",
-          "text": "&gt; The refusal to accept code that the developer knows is correct, How do you know it is correct? Did you prove it with pre-condition, invariants and post-condition? Or did you assume based on prior experience.",
-          "depth": 4,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43746298,
-          "author": "edflsafoiewq",
-          "text": "One example is a function call that doesn&#x27;t compile, but will if you inline the function body. Compilation is prevented only by the insufficient expressiveness of the function signature.",
-          "depth": 5,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43746128,
-          "author": "yohannesk",
-          "text": "Writing correct code did not start after the introduction of the rust programming language",
-          "depth": 5,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43746376,
-          "author": "Ygg2",
-          "text": "Nope, but claims of knowing to write correct code (especially C code) without borrow checker sure did spike with its introduction. Hence, my question. How do you know you haven&#x27;t been writing unsafe code for years, when C unsafe guidelines have like 200 entries[1]. [1]<a href=\"https:&#x2F;&#x2F;www.dii.uchile.cl&#x2F;~daespino&#x2F;files&#x2F;Iso_C_1999_definition.pdf\" rel=\"nofollow\">https:&#x2F;&#x2F;www.dii.uchile.cl&#x2F;~daespino&#x2F;files&#x2F;Iso_C_1999_definit...</a> (Annex J.2 page 490)",
-          "depth": 6,
-          "sentiment": 0.25
-        },
-        {
-          "id": 43746850,
-          "author": "int_19h",
-          "text": "It&#x27;s not difficult to write a provably correct implementation of doubly linked list in C, but it is very painful to do in Rust because the borrow checker really hates this kind of mutually referential objects.",
-          "depth": 7,
-          "sentiment": 0.028000000000000014
-        },
-        {
-          "id": 43746263,
-          "author": "Starlevel004",
-          "text": "Lifetimes add an impending sense of doom to writing any sort of deeply nested code. You get this deep without writing a lifetime... uh oh, this struct needs a reference, and now you need to add a generic parameter to everything everywhere you&#x27;ve ever written and it feels miserable. Doubly so when you&#x27;ve accidentally omitted a lifetime generic somewhere and it compiles now but then you do some refactoring and it <i>won&#x27;t</i> work anymore and you need to go back and re-add the generic parameter everywhere.",
-          "depth": 3,
-          "sentiment": -0.125
-        },
-        {
-          "id": 43746586,
-          "author": "pornel",
-          "text": "There is a stark contrast in usability of self-contained&#x2F;owning types vs types that are temporary views bound by a lifetime of the place they are borrowing from. But this is an inherent problem for all non-GC languages that allow saving pointers to data on the stack (Rust doesn&#x27;t need lifetimes for by-reference heap types). In languages without lifetimes you just don&#x27;t get any compiler help in finding places that may be affected by dangling pointers. This is similar to creating a broadly-used data structure and realizing that some field has to be optional. Option&lt;T&gt; will require you to change everything touching it, and virally spread through all the code that wanted to use that field unconditionally. However, that&#x27;s not the fault of the Option syntax, it&#x27;s the fault of semantics of optionality. In languages that don&#x27;t make this &quot;miserable&quot; at compile time, this problem manifests with a whack-a-mole of NullPointerExceptions at run time. With experience, I don&#x27;t get this &quot;oh no, now there&#x27;s a lifetime popping up everywhere&quot; surprise in Rust any more. Whether something is going to be a temporary view or permanent storage can be known ahead of time, and if it can be both, it can be designed with Cow-like types. I also got a sense for when using a temporary loan is a premature optimization. All data has to be stored somewhere (you can&#x27;t have a reference to data that hasn&#x27;t been stored). Designs that try to be ultra-efficient by allowing only temporary references often force data to be stored in a temporary location first, and then borrowed, which doesn&#x27;t avoid any allocations, only adds dependencies on external storage. Instead, the design can support moving or collecting data into owned (non-temporary) storage directly. It can then keep it for an arbirary lifetime without lifetime annotations, and hand out temporary references to it whenever needed. The run-time cost can be the same, but the semantics are much easier to work with.",
-          "depth": 4,
-          "sentiment": 0.12272727272727274
-        },
-        {
-          "id": 43746507,
-          "author": "the__alchemist",
-          "text": "I guess the dodge on this one is not using refs in structs. This opens you up to index errors though because it presumably means indexing arrays etc. Is this the tradeoff. (I write loads of rusts in a variety of domains, and rarely need a manual lifetime)",
-          "depth": 4,
-          "sentiment": 0.3
-        },
-        {
-          "id": 43747105,
-          "author": "quotemstr",
-          "text": "And those index values are just pointers by another name!",
-          "depth": 5,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43747764,
-          "author": "estebank",
-          "text": "It&#x27;s not &quot;just pointers&quot;, because they can have additional semantics and assurances beyond &quot;give me the bits at this address&quot;. The index value can be tied to a specific container (using new types for indexing so tha you can&#x27;t make the mistake of getting value 1 from container A when it represents an index from container B), can prevent use after free (by embedding data about the value&#x27;s &quot;generation&quot; in the key), and makes the index resistant to relocation of the values (because of the additional level of indirection of the index to the value&#x27;s location).",
-          "depth": 6,
-          "sentiment": 0.1340909090909091
-        },
-        {
-          "id": 43748492,
-          "author": "quotemstr",
-          "text": "Yes, but like raw pointers, they lack lifetime guarantees and invite use after free vulnerabilities",
-          "depth": 7,
-          "sentiment": 0.08461538461538462
-        },
-        {
-          "id": 43745462,
-          "author": "skybrian",
-          "text": "Yes, but I\u2019m not hoping for that. I\u2019m hoping for something like a scripting language with simpler lifetime annotations. Is Rust going to be the last popular language to be invented that explores that space? I hope not.",
-          "depth": 2,
-          "sentiment": 0.3
-        },
-        {
-          "id": 43745665,
-          "author": "hyperbrainer",
-          "text": "I was quite impressed with Austral[0], which used Linear Types and avoids the whole Rust-like implementation in favour of a more easily understandable system, albeit slightly more verbose. [0]<a href=\"https:&#x2F;&#x2F;borretti.me&#x2F;article&#x2F;introducing-austral\" rel=\"nofollow\">https:&#x2F;&#x2F;borretti.me&#x2F;article&#x2F;introducing-austral</a>",
-          "depth": 3,
-          "sentiment": 0.5266666666666666
-        },
-        {
-          "id": 43746855,
-          "author": "renox",
-          "text": "Austra&#x27;s concept are interesting but the introduction doesn&#x27;t show how to handle correctly errors in this language..",
-          "depth": 4,
-          "sentiment": 0.5
-        },
-        {
-          "id": 43748794,
-          "author": "hyperbrainer",
-          "text": "Austral&#x27;s specification is one of the most beautiful and well-written pieces of documentation I have ever found. It&#x27;s section on error handling in Austral[0] cover everything from rationale and alternatives to concrete examples of how exceptions should be handled in conjunction with linear types. <a href=\"https:&#x2F;&#x2F;austral-lang.org&#x2F;spec&#x2F;spec.html#rationale-errors\" rel=\"nofollow\">https:&#x2F;&#x2F;austral-lang.org&#x2F;spec&#x2F;spec.html#rationale-errors</a>",
-          "depth": 5,
-          "sentiment": 0.5
-        },
-        {
-          "id": 43745858,
-          "author": "Philpax",
-          "text": "You may be interested in <a href=\"https:&#x2F;&#x2F;dada-lang.org&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;dada-lang.org&#x2F;</a>, which is not ready for public consumption, but is a language by one of Rust&#x27;s designers that aims to be higher-level while still keeping much of the goodness from Rust.",
-          "depth": 3,
-          "sentiment": 0.0875
-        },
-        {
-          "id": 43745902,
-          "author": "skybrian",
-          "text": "The first and last blog post was in 2021. Looks like it\u2019s still active on Github, though?",
-          "depth": 4,
-          "sentiment": 0.03888888888888889
-        },
-        {
-          "id": 43745947,
-          "author": "Ygg2",
-          "text": "&gt; Is Rust going to be the last popular language to be invented that explores that space? I hope not. Seeing how most people hate the lifetime annotations, yes. For the foreseeable future. People want unlimited freedom. Unlimited freedom rhymes with unlimited footguns.",
-          "depth": 3,
-          "sentiment": 0.06000000000000001
-        },
-        {
-          "id": 43746350,
-          "author": "xmorse",
-          "text": "There is Mojo and Vale (which was created by a now Mojo core contributor)",
-          "depth": 4,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43746930,
-          "author": "no_wizard",
-          "text": "I have zero issue with needing runtime GC or equivalent like ARC. My issue is with ergonomics and performance. In my experience with a range of languages, the most performant way of writing the code is not the way you would idiomatically write it. They make good performance more complicated than it should be. This holds true to me for my work with Java, Python, C# and JavaScript. What I suppose I\u2019m looking for is a better compromise between having some form of managed runtime vs non managed And yes, I\u2019ve also tried Go, and it\u2019s DX is its own type of pain for me. I should try it again now that it has generics",
-          "depth": 2,
-          "sentiment": 0.37857142857142856
-        },
-        {
-          "id": 43747394,
-          "author": "neonsunset",
-          "text": "Using spans, structs, object and array pools is considered fairly idiomatic C# if you care about performance (and many methods now default to just spans even outside that). What kind of idiomatic or unidiomatic C# do you have in mind? I\u2019d say if you are okay with GC side effects, achieving good performance targets is way easier than if you care about P99&#x2F;999.",
-          "depth": 3,
-          "sentiment": 0.5
-        },
-        {
-          "id": 43745791,
-          "author": "spullara",
-          "text": "With Java ZGC the performance aspect has been fixed (&lt;1ms pause times and real world throughput improvement). Memory usage though will always be strictly worse with no obvious way to improve it without sacrificing the performance gained.",
-          "depth": 2,
-          "sentiment": -0.024999999999999994
-        },
-        {
-          "id": 43747793,
-          "author": "estebank",
-          "text": "IMO the best chance Java has to close the gap on memory utilisation is Project Valhalla[1] which brings value types to the JVM, but the specifics will matter. If it requires backwards incompatible opt-in ceremony, the adoption in the Java ecosystem is going to be an uphill battle, so the wins will remain theoretical and be unrealised. If it is transparent, then it might reduce the memory pressure of Java applications overnight. Last I heard was that the project was ongoing, but production readiness remained far in the future. I hope they pull it off. 1: <a href=\"https:&#x2F;&#x2F;openjdk.org&#x2F;projects&#x2F;valhalla&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;openjdk.org&#x2F;projects&#x2F;valhalla&#x2F;</a>",
-          "depth": 3,
-          "sentiment": 0.23333333333333336
-        },
-        {
-          "id": 43748268,
-          "author": "spullara",
-          "text": "Agree, been waiting for it for almost a decade.",
-          "depth": 4,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43745201,
-          "author": "xedrac",
-          "text": "I like Zig as a replacement for C, but not C++ due to its lack of RAII.  Rust on the other hand is a great replacement for C++.  I see Zig as filling a small niche where allocation failures are paramount - very constrained embedded devices, etc...  Otherwise, I think you just get a lot more with Rust.",
-          "depth": 1,
-          "sentiment": 0.19791666666666666
-        },
-        {
-          "id": 43745507,
-          "author": "rastignack",
-          "text": "Compile times and painful to refactor codebase are rust\u2019s main drawbacks for me though. It\u2019s totally subjective but I find the language boring to use. For side projects I like having fun thus I picked zig. To each his own of course.",
-          "depth": 2,
-          "sentiment": -0.10555555555555553
-        },
-        {
-          "id": 43745951,
-          "author": "nicce",
-          "text": "&gt; refactor codebase are rust\u2019s main drawbacks Hard disagree about refactoring. Rust is one of the few languages where you can actually do refactoring rather safely without having tons of tests that just exist to catch issues if code changes.",
-          "depth": 3,
-          "sentiment": 0.03499999999999999
-        },
-        {
-          "id": 43746010,
-          "author": "rastignack",
-          "text": "Lifetimes and generic tend to leak so you have to modify your code all around the place when you touch them though.",
-          "depth": 4,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43745255,
-          "author": "xmorse",
-          "text": "Even better than RAII would be linear types, but it would require a borrow checker to track the lifetimes of objects. Then you would get a compiler error if you forget to call a .destroy() method",
+          "id": 43743576,
+          "author": "Lerc",
+          "text": "4586 Avg. years off 5 I felt like I should have been able to be closer.  The images wouldn&#x27;t zoom on my phone though.  I&#x27;m impressed by three years off but would consider it quite possible for somone who knows their history.",
           "depth": 2,
           "sentiment": 0.5
         },
         {
-          "id": 43745597,
-          "author": "throwawaymaths",
-          "text": "no you just need analysis with a dependent type system (which linear types are a subset of).  it doesn&#x27;t have to be in the compiler.  there was a proof of concept here a few months ago: <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=42923829\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=42923829</a> <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=43199265\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=43199265</a>",
+          "id": 43743594,
+          "author": "incanus77",
+          "text": "Score 4722 Avg. Years Off 2.6 here. Spoilers: I got two exactly right (Arab Spring, Battle of Britain) and one off by a year (dancing). The two exacts were pretty obviously tied to specific dated events, and I both love history and have a pretty easy time remembering dates. I love this sort of game, as I do trivia, history trivia especially.",
+          "depth": 2,
+          "sentiment": 0.18190476190476193
+        },
+        {
+          "id": 43743872,
+          "author": "furyofantares",
+          "text": "I got one off by 20 years, oops. But there&#x27;s two where I think you can get exact or off by 1 with some knowledge of world events, maybe it&#x27;s a 50&#x2F;50 shot. And there&#x27;s two where the half-decade is pretty clear.",
+          "depth": 2,
+          "sentiment": 0.19999999999999998
+        },
+        {
+          "id": 43743510,
+          "author": "echoangle",
+          "text": "For some images, it involves some luck. But one image was WWII for example, that one is much easier to get accurately.",
+          "depth": 2,
+          "sentiment": 0.30000000000000004
+        },
+        {
+          "id": 43743605,
+          "author": "petesergeant",
+          "text": "&gt; Score: 4947; Avg. Years Off: 1.2 Skill issue.",
+          "depth": 2,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43745129,
+          "author": "hnpolicestate",
+          "text": "Lindy.",
+          "depth": 1,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43744506,
+          "author": "sergiotapia",
+          "text": "It&#x27;s called &quot;stuck culture&quot;. <a href=\"https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=Pyi-KGwuR9c\" rel=\"nofollow\">https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=Pyi-KGwuR9c</a>",
+          "depth": 1,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.07113023854688713
+    },
+    {
+      "block": [
+        {
+          "id": 43743773,
+          "author": "jpalomaki",
+          "text": "The &quot;global score distribution&quot; (and my score) and the end was pretty good idea. Much more informative than just some high score list.",
+          "depth": 0,
+          "sentiment": 0.40249999999999997
+        },
+        {
+          "id": 43747824,
+          "author": "GaryRGruberPhD",
+          "text": "I wish it had distributions for each picture",
+          "depth": 1,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43744176,
+          "author": "johnsillings",
+          "text": "Agree \u2013 great feature &amp; nice for sharing.",
+          "depth": 1,
+          "sentiment": 0.7
+        }
+      ],
+      "avg_sentiment": 0.3675
+    },
+    {
+      "block": [
+        {
+          "id": 43742173,
+          "author": "redbell",
+          "text": "That was fun and definitely a bit challenging to figure out\u2014I scored 3677, landing in the top 46%, with an average of 9.2 years. As for some (hopefully constructive) feedback: I think the year selection slider could benefit from a few adjustments. If an image is from the distant past\u2014say, pre-1950s\u2014it might make more sense to use decade-based precision rather than individual years. For example, a black-and-white photo had me way off that caused me to lose 20 years of my life :). It would be helpful if such images were categorized more broadly, something like \u201c191x\u201d. For mid-century images (roughly 1960\u20131990), a 5-year interval could strike a better balance. I came across one from that era and was six years off. And for more recent images, say post-2010, a one-year precision feels reasonable. Of course, this suggestion mainly applies if we&#x27;re deducing the year based on visual cues like clothing, hairstyles, and the environment. If the game is intended more as a quiz based on the text descriptions under the images, then it shifts more into trivia territory\u2014and that\u2019s a different type of challenge altogether.",
+          "depth": 0,
+          "sentiment": 0.17829861111111112
+        },
+        {
+          "id": 43742301,
+          "author": "dmos62",
+          "text": "The score takes the magnitude of error into account. Isn&#x27;t it nice that guessing the precise year is more rewarded than guessing the decade?",
+          "depth": 1,
+          "sentiment": 0.5
+        },
+        {
+          "id": 43742403,
+          "author": "pngeez",
+          "text": "Hi, I made this game. Really appreciate the feedback! Seems like older images tend to be frustrating, so I think I&#x27;ll use them less going forward. Also, older photos are scored more generously, so being a few decades off won\u2019t tank your score nearly as much as it would on a newer one.",
+          "depth": 1,
+          "sentiment": 0.012962962962962954
+        },
+        {
+          "id": 43743720,
+          "author": "lolinder",
+          "text": "No, don&#x27;t stop using the older images! They were the most fun for me! Reasoning about the political landscape that would have led to the beach photo was challenging and rewarding when I got it right. And the London Blitz photo was also a ton of fun to see and think about.",
+          "depth": 2,
+          "sentiment": 0.3336309523809523
+        },
+        {
+          "id": 43744914,
+          "author": "gradascent",
+          "text": "Adding to the chorus: I like the older images and the precise year is important! The underground shelter is something that wouldn\u2019t exist just a few years after that photo, or before.",
+          "depth": 2,
+          "sentiment": 0.21666666666666667
+        },
+        {
+          "id": 43745123,
+          "author": "lostlogin",
+          "text": "&gt; The underground shelter is something that wouldn\u2019t exist just a few years after that photo, or before. It\u2019s probably there now, it\u2019s the London Underground.",
           "depth": 3,
           "sentiment": -0.2
         },
         {
-          "id": 43745573,
-          "author": "throwawaymaths",
-          "text": "in principle it should be doable, possibly not in the language&#x2F;compiler itself, there was this POC a few months ago: <a href=\"https:&#x2F;&#x2F;github.com&#x2F;ityonemo&#x2F;clr\">https:&#x2F;&#x2F;github.com&#x2F;ityonemo&#x2F;clr</a>",
-          "depth": 1,
-          "sentiment": -0.1
+          "id": 43742907,
+          "author": "Al-Khwarizmi",
+          "text": "For the record, I especially enjoyed the older photos. Maybe it&#x27;s just a matter of making it obvious in the UI that they penalize less, so that score maximizers won&#x27;t be annoyed with them.",
+          "depth": 2,
+          "sentiment": 0.12
         },
         {
-          "id": 43744960,
-          "author": "hermanradtke",
-          "text": "I wish for \u201cstrict\u201d mode as well. My current thinking: TypeScript is to JavaScript as Zig is to C I am a huge TS fan.",
-          "depth": 1,
-          "sentiment": 0.19999999999999998
+          "id": 43743528,
+          "author": "bbarnett",
+          "text": "Yes!  Games are to be fun, but for many the challenge is fun.",
+          "depth": 3,
+          "sentiment": 0.3666666666666667
         },
         {
-          "id": 43745224,
-          "author": "rc00",
-          "text": "Is Zig aiming to extend C or extinguish it? The embrace story is well-established at this point but the remainder is often unclear in the messaging from the community.",
+          "id": 43742704,
+          "author": "frereubu",
+          "text": "This is fun. One tiny bit of UI feedback - when maximising the image, I&#x27;d expect the escape key to go back to the game, and found it a bit frustrating when it didn&#x27;t.",
+          "depth": 2,
+          "sentiment": -0.08333333333333333
+        },
+        {
+          "id": 43742970,
+          "author": "asdf12341",
+          "text": "Hi, I think you should credit the photographer of these as well.",
           "depth": 2,
           "sentiment": 0.0
         },
         {
-          "id": 43745808,
-          "author": "PaulRobinson",
-          "text": "It&#x27;s improved C. C interop is very important, and very valuable. However, by removing undefined behaviours, replacing macros that do weird things with well thought-through comptime, and making sure that the zig compiler is also a c compiler, you get a nice balance across lots of factors. It&#x27;s a great language, I encourage people to dig into it.",
-          "depth": 3,
-          "sentiment": 0.35333333333333333
+          "id": 43743131,
+          "author": "darkerside",
+          "text": "I disagree with all of that feedback. Might be because I got top 3%. I don&#x27;t mean this in a mean way, but it sounds like sour grapes to me!",
+          "depth": 2,
+          "sentiment": -0.078125
         },
         {
-          "id": 43746440,
-          "author": "yellowapple",
-          "text": "The goal rather explicitly seems to be to extinguish it - the idea being that if you&#x27;ve got Zig, there should be no reason to need to write new code in C, because literally anything possible in C should be possible (and ideally done better) in Zig. Whether that ends up happening is obviously yet to be seen; as it stands there are plenty of Zig codebases with C in the mix.  The idea, though, is that there shouldn&#x27;t be anything stopping a programmer from replacing that C with Zig, and the two languages only coexist for the purpose of allowing that replacement to be gradual.",
-          "depth": 3,
-          "sentiment": 0.21948051948051947
-        },
-        {
-          "id": 43745439,
-          "author": "dooglius",
-          "text": "Zig is open source, so the analogy to Microsoft&#x27;s EEE [0] seems misplaced. [0] <a href=\"https:&#x2F;&#x2F;en.m.wikipedia.org&#x2F;wiki&#x2F;Embrace,_extend,_and_extinguish?useskin=vector\" rel=\"nofollow\">https:&#x2F;&#x2F;en.m.wikipedia.org&#x2F;wiki&#x2F;Embrace,_extend,_and_extingu...</a>",
-          "depth": 3,
-          "sentiment": -0.1
-        },
-        {
-          "id": 43745514,
-          "author": "rc00",
-          "text": "Open source or not isn&#x27;t the point. The point is the mission and the ecosystem. Some of the Zig proponents laud the C compatibility. Others are seeking out the &quot;pure Zig&quot; ecosystem. Curious onlookers want to know if the Zig ecosystem and community will be as hostile to the decades of C libraries as the Rust zealots have been. To be fair, I don&#x27;t believe there is a centralized and stated mission with Zig but it does feel like the story has moved beyond the &quot;Incrementally improve your C&#x2F;C++&#x2F;Zig codebase&quot; moniker.",
-          "depth": 4,
-          "sentiment": 0.19999999999999998
-        },
-        {
-          "id": 43745641,
-          "author": "Zambyte",
-          "text": "&gt; Curious onlookers want to know if the Zig ecosystem and community will be as hostile to the decades of C libraries as the Rust zealots have been. Definitely not the case in Zig. From my experience, the relationship with C libraries amounts to &quot;if it works, use it&quot;.",
-          "depth": 5,
-          "sentiment": -0.05
-        },
-        {
-          "id": 43745821,
-          "author": "rc00",
-          "text": "Are you referring to static linking? Dynamic linking? Importing&#x2F;inclusion? How does this translate (no pun intended) when the LLVM backend work is completed? Does this extend to reproducible builds? Hermetic builds? And the relationship with C libraries certainly feels like a placeholder, akin to before the compiler was self-hosted. While I have seen some novel projects in Zig, there are certainly more than a few &quot;pure Zig&quot; rewrites of C libraries. Ultimately, this is free will. I just wonder if the Zig community is teeing up for a repeat of Rust&#x27;s actix-web drama but rather than being because of the use of unsafe, it would be due to the use of C libraries instead of the all-Zig counterparts (assuming some level of maturity with the latter). While Zig&#x27;s community appears healthier and more pragmatic, hype and ego have a way of ruining everything.",
-          "depth": 6,
-          "sentiment": 0.17892857142857146
-        },
-        {
-          "id": 43745935,
-          "author": "Zambyte",
-          "text": "&gt; static linking? Yes &gt; Dynamic linking? Yes &gt; Importing&#x2F;inclusion? Yes &gt; How does this translate (no pun intended) when the LLVM backend work is completed? I&#x27;m not sure what you mean. It sounds like you think they&#x27;re working on being able to use LLVM as a backend, but that has already been supported, and now they&#x27;re working on <i>not</i> depending on LLVM as a requirement. &gt; Does this extend to reproducible builds? My hunch would be yes, but I&#x27;m not certain. &gt; Hermetic builds? I have never heard of this, but I would guess the same as reproducible. &gt; While I have seen some novel projects in Zig, there are certainly more than a few &quot;pure Zig&quot; rewrites of C libraries. It&#x27;s a nice exercise, especially considering how close C and Zig are semantically. It&#x27;s helpful for learning to see how C things are done in Zig, and rewriting things lets you isolate that experience without also being troubled with creating something novel. For more than a few <i>not</i> rewrites, check out <a href=\"https:&#x2F;&#x2F;github.com&#x2F;allyourcodebase\">https:&#x2F;&#x2F;github.com&#x2F;allyourcodebase</a>, which is a group that repackages existing C libraries with the Zig package manager &#x2F; build system.",
-          "depth": 7,
-          "sentiment": 0.0735969387755102
-        },
-        {
-          "id": 43745750,
-          "author": "ephaeton",
-          "text": "zig&#x27;s C compat is being lowered from &#x27;comptime&#x27; equivalent status to &#x27;zig build&#x27;-time equivalent status. When you&#x27;ll need to put &#x27;extern &quot;C&quot;&#x27; annotations on any import&#x2F;export to C, it&#x27;ll have gone full-circle to C++ C compat, and thus be none the wiser. andrewrk&#x27;s wording towards C and its main ecosystem (POSIX) is very hostile, if that is something you&#x27;d like to go by.",
-          "depth": 5,
-          "sentiment": 0.18333333333333335
+          "id": 43743572,
+          "author": "Rapzid",
+          "text": "I got that London blitz photo bang on. The older photos are fun.",
+          "depth": 2,
+          "sentiment": 0.23333333333333334
         }
       ],
-      "avg_sentiment": 0.11617687777731706
+      "avg_sentiment": 0.13334173831569665
     },
     {
       "block": [
         {
-          "id": 43745391,
-          "author": "ww520",
-          "text": "This is a very educational blog post. I knew \u2018comptime for\u2019 and \u2018inline for\u2019 were comptime related, but didn\u2019t know the difference. The post explains the inline version only knows the length at comptime. I guess it\u2019s for loop unrolling.",
+          "id": 43742319,
+          "author": "pembrook",
+          "text": "Great idea! The trick is to zoom into peoples clothing, and then the associated event becomes quite obvious. Eg. Photo of Disco, no crazy lapels, obviously towards the end of disco, which puts you within a year or two. Might have gotten lucky but zooming in on clothing got me to 1.8 years off on average (top 2%).",
           "depth": 0,
-          "sentiment": 0.10833333333333334
+          "sentiment": 0.2833333333333333
         },
         {
-          "id": 43746484,
-          "author": "hansvm",
-          "text": "The normal use case for `inline for` is when you have to close over something only known at compile time (like when iterating over the fields of a struct), but when your behavior depends on runtime information (like conditionally assigning data to those fields). Unrolling as a performance optimization is usually slightly different, typically working in batches rather than unrolling the entire thing, even when the length is known at compile time. The docs suggest not using `inline` for performance without evidence it helps in your specific usage, largely because the bloated binary is likely to be slower unless you have a good reason to believe your case is special, and also because `inline` _removes_ optimization potential from the compiler rather than adding it (its inlining passes are very, very good, and despite having an extremely good grasp on which things should be inlined I rarely outperform the compiler -- I&#x27;m never worse, but the ability to not have to even think about it unless&#x2F;until I get to the microoptimization phase of a project is liberating).",
+          "id": 43742472,
+          "author": "david-gpu",
+          "text": "Pinch to zoom didn&#x27;t work for me on Firefox for Android, and neither did double tapping.",
           "depth": 1,
-          "sentiment": 0.22431746031746033
+          "sentiment": 0.0
+        },
+        {
+          "id": 43742663,
+          "author": "SlackSabbath",
+          "text": "Settings &gt; Accessibility &gt; Zoom on all websites",
+          "depth": 2,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43744923,
+          "author": "exhilaration",
+          "text": "Thanks!!!",
+          "depth": 3,
+          "sentiment": 0.390625
+        },
+        {
+          "id": 43747462,
+          "author": "fooker",
+          "text": "Yeah Firefox has trouble with a decent fraction of web apps nowadays. Not their fault of course, with people not testing with Firefox.",
+          "depth": 2,
+          "sentiment": -0.016666666666666677
+        },
+        {
+          "id": 43743057,
+          "author": "janwillemb",
+          "text": "Long press the picture, open image in new tab. Then you can zoom.",
+          "depth": 2,
+          "sentiment": 0.028787878787878782
+        },
+        {
+          "id": 43742747,
+          "author": "qw",
+          "text": "It doesn&#x27;t work for me either (Android+Chrome)",
+          "depth": 2,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43742482,
+          "author": "nly",
+          "text": "Me either. Squinting at it didn&#x27;t help.",
+          "depth": 2,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43742660,
+          "author": "Jensson",
+          "text": "I just went by feel of each and got 2.4 year average, also top 2%. I guess it doesn&#x27;t do higher than top 2% then. &gt; obviously towards the end of disco What is the end of disco?",
+          "depth": 1,
+          "sentiment": 0.22000000000000003
+        },
+        {
+          "id": 43742787,
+          "author": "input_sh",
+          "text": "Disco is probably the only genre whose &quot;death&quot; (as in very quick drop from being mainstream) can be traced to a very specific date: July 12th, 1979. <a href=\"https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Disco_Demolition_Night\" rel=\"nofollow\">https:&#x2F;&#x2F;en.wikipedia.org&#x2F;wiki&#x2F;Disco_Demolition_Night</a>",
+          "depth": 2,
+          "sentiment": 0.14444444444444446
+        },
+        {
+          "id": 43742912,
+          "author": "Al-Khwarizmi",
+          "text": "Interesting. Can we organize an event to blow up reggaeton records (or trap, or latin urban, or whatever they call it now - sounds all similar to me) and hope for it to go away?",
+          "depth": 3,
+          "sentiment": 0.16666666666666666
+        },
+        {
+          "id": 43743110,
+          "author": "input_sh",
+          "text": "Personally, I&#x27;d prefer for a young white male demographic to not riot against music primarily associated with certain marginalised communities anymore.",
+          "depth": 4,
+          "sentiment": 0.11904761904761905
+        },
+        {
+          "id": 43744800,
+          "author": "zamadatix",
+          "text": "I&#x27;m not sure why that would mean it doesn&#x27;t go higher than top 2%, it would only imply the scores you ended up with were in the same percentage bracket. Confirming this, it looks like you indeed get top 0% when you end on a perfect score of 5000 with an average of 0 years off.",
+          "depth": 2,
+          "sentiment": 0.17083333333333334
+        },
+        {
+          "id": 43742706,
+          "author": "frereubu",
+          "text": "I presume OP meant towards the end of the disco era.",
+          "depth": 2,
+          "sentiment": 0.0
         }
       ],
-      "avg_sentiment": 0.16632539682539682
+      "avg_sentiment": 0.10764797206761492
     },
     {
       "block": [
         {
-          "id": 43745782,
-          "author": "paldepind2",
-          "text": "This is honestly really cool! I&#x27;ve heard praises about Zig&#x27;s comptime without really understanding what makes it tick. It initially sounds like Rust&#x27;s constant evaluation which is not particularly capable. The ability to have types represented as values at compilation time, and _only_ at compile time, is clearly very powerful. It approximates dynamic languages or run-time reflection without any of the run-time overhead and without opening the Pandora&#x27;s box that is full blown macros as in Lisp or Rust&#x27;s procedural macros.",
+          "id": 43742005,
+          "author": "peripitea",
+          "text": "Tried plugging it into the new o3 model out of curiosity and it got 0.2, i.e. it got everything exactly right save for one that it missed by a year.",
           "depth": 0,
-          "sentiment": 0.14194444444444443
+          "sentiment": 0.21103896103896103
+        },
+        {
+          "id": 43742292,
+          "author": "delusional",
+          "text": "You know, there are easier ways to cheat at the game? The photos are from the internet, a reverse image search will surface all of them.",
+          "depth": 1,
+          "sentiment": -0.4
+        },
+        {
+          "id": 43742385,
+          "author": "scrollop",
+          "text": "Why would s&#x2F;he come here to boast about cheating on a game? S&#x2F;he was obviously testing the AI.",
+          "depth": 2,
+          "sentiment": -0.2
+        },
+        {
+          "id": 43742325,
+          "author": "mr_mitm",
+          "text": "I read it as more of an experiment to gauge the capabilities of AI than an attempt at cheating. I&#x27;m impressed that AI is that good.",
+          "depth": 2,
+          "sentiment": 0.7333333333333334
+        },
+        {
+          "id": 43742413,
+          "author": "codetrotter",
+          "text": "Is it good, or are those photos already in the training data that the model was trained on? Would be interesting to see how well it would fare on five photos from different years, using pictures that have never previously been uploaded anywhere.",
+          "depth": 3,
+          "sentiment": 0.3208333333333333
+        },
+        {
+          "id": 43747296,
+          "author": "calmoo",
+          "text": "I would bet it would still do well. You can give a frontier LLM photos that it has never seen before and it will reason about them incredibly accurately, since is is trained on, well, a lot of other similar photos. You can easily try it yourself, give o3 a photo you have taken yourself of a random place, it will crop, zoom and analyze different sections of the photo until it gets most of the time the exact coordinates of where the photo was taken.",
+          "depth": 4,
+          "sentiment": 0.11979166666666669
+        },
+        {
+          "id": 43747455,
+          "author": "fooker",
+          "text": "&gt; are those photos already in the training data that the model was trained on? The photos are of course in the training data. Most humans too, would have seen a large fraction of these photos before. But associating it with a year is where the magic happens. You are dismissing a technology capability that was science fiction a year or two ago.",
+          "depth": 4,
+          "sentiment": 0.4047619047619048
         }
       ],
-      "avg_sentiment": 0.14194444444444443
+      "avg_sentiment": 0.16996559987631418
+    },
+    {
+      "block": [
+        {
+          "id": 43743609,
+          "author": "pyfon",
+          "text": "4580. Helps if you recognise the current affairs. Gay marriage, Arab spring, London Blitz came up. Leaving me with a party with a mix of drab and 70s disco clothing so I guessed 1981 and was close enough! The one that got me was some people at a beach in black and white.",
+          "depth": 0,
+          "sentiment": 0.05
+        },
+        {
+          "id": 43748743,
+          "author": "rsync",
+          "text": "Score\n4753  Top 2%\nAvg. Years Off. 3.0 I didn&#x27;t really recognize any of the current events - or anything at all - I just ... kind of knew ... In fact, it had less to do with the actual content of the photo than the qualities of the photo itself ... I sort of felt like photos <i>looked like that</i> around 1990 ... and I was right.",
+          "depth": 1,
+          "sentiment": 0.20272108843537412
+        },
+        {
+          "id": 43747613,
+          "author": "huevosabio",
+          "text": "I recognized the Arab spring and the London blitz. The gay marriage one I couldn&#x27;t put a date, but noticed a flip phone on the picture so I just guessed the highest number before iPhone release year and wasn&#x27;t too bad. The disco scene was clearly a 70s Pic so I just guessed smack in the middle of the decade. The beach black and white I was the most off. I faintly remember that it was a big discussion point during the 20s that women should be allowed to wear &quot;revealing&quot; swimsuits,so again I went for a year in the decade. I was off",
+          "depth": 1,
+          "sentiment": -0.038888888888888876
+        }
+      ],
+      "avg_sentiment": 0.07127739984882842
+    },
+    {
+      "block": [
+        {
+          "id": 43748604,
+          "author": "dasefx",
+          "text": "Not bad WhichYear 4&#x2F;21&#x2F;25\n4864 pts (top 101%)\n3\u20e3 avg. years off 2\u20e3 3\u20e3 5\u20e3  3\u20e3 <a href=\"https:&#x2F;&#x2F;whichyr.com\" rel=\"nofollow\">https:&#x2F;&#x2F;whichyr.com</a>",
+          "depth": 0,
+          "sentiment": 0.42499999999999993
+        }
+      ],
+      "avg_sentiment": 0.42499999999999993
+    },
+    {
+      "block": [
+        {
+          "id": 43747351,
+          "author": "leonewton253",
+          "text": "I have a tendency to date films and photos by their quality. Thats why I was 16 years off on the 1934 one. I got the first one exactly right, even though Im born in 1990.Some B&amp;W cameras 80 years ago took better pictures than most cameras today.",
+          "depth": 0,
+          "sentiment": 0.3839285714285714
+        },
+        {
+          "id": 43747852,
+          "author": "Bluecobra",
+          "text": "As an aside, this is a great website to browse old B&amp;W photos.  Some of these scans are really breathtaking.  <a href=\"https:&#x2F;&#x2F;www.shorpy.com&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.shorpy.com&#x2F;</a>",
+          "depth": 1,
+          "sentiment": 0.6333333333333333
+        }
+      ],
+      "avg_sentiment": 0.5086309523809524
+    },
+    {
+      "block": [
+        {
+          "id": 43743951,
+          "author": "hliyan",
+          "text": "One thing I realized was: the presence or absence of smartphones is an easy way to determine whether something happened before circa 2009 or after. Another: indoor smoking.",
+          "depth": 0,
+          "sentiment": 0.21041666666666667
+        }
+      ],
+      "avg_sentiment": 0.21041666666666667
+    },
+    {
+      "block": [
+        {
+          "id": 43742062,
+          "author": "Einenlum",
+          "text": "I love it. Just too bad you can&#x27;t zoom in the picture on mobile. Had to open the picture on a new tab.",
+          "depth": 0,
+          "sentiment": -0.015909090909090873
+        },
+        {
+          "id": 43742409,
+          "author": "usr1106",
+          "text": "Usability on mobile Firefox was not great.",
+          "depth": 1,
+          "sentiment": -0.4
+        },
+        {
+          "id": 43742553,
+          "author": "szenrom",
+          "text": "In Firefox, you can now go into Accessibility options and enable zooming on all sites which should help, it did for me.",
+          "depth": 2,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43742248,
+          "author": "jjbinx007",
+          "text": "I could zoom in okay on Chrome for Android but I always enable zoom override in accessibility so it might be that.",
+          "depth": 1,
+          "sentiment": 0.5
+        },
+        {
+          "id": 43742397,
+          "author": "rasso",
+          "text": "Zooming in worked for me in Arc on iPhone",
+          "depth": 1,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43743702,
+          "author": "Einenlum",
+          "text": "(I used Brave on Android)",
+          "depth": 1,
+          "sentiment": 0.8
+        },
+        {
+          "id": 43742379,
+          "author": "jonwinstanley",
+          "text": "I pinched the page and it zoomed ok",
+          "depth": 1,
+          "sentiment": 0.5
+        },
+        {
+          "id": 43742411,
+          "author": "pngeez",
+          "text": "This is great to know, thanks! Will hopefully have it working for tomorrow&#x27;s challenge.",
+          "depth": 1,
+          "sentiment": 0.525
+        }
+      ],
+      "avg_sentiment": 0.23863636363636365
+    },
+    {
+      "block": [
+        {
+          "id": 43747734,
+          "author": "jazoom",
+          "text": "Looks like I also have to play &quot;guess the timezone of the creator of this game&quot;. I enjoyed playing it yesterday. It&#x27;s now 11am today and it&#x27;s still not open again. I have no idea when it will be.",
+          "depth": 0,
+          "sentiment": 0.25
+        },
+        {
+          "id": 43747912,
+          "author": "pngeez",
+          "text": "Hey thanks for playing! The game resets at midnight ET. I&#x27;m working on adding a countdown to the next challenge right now. Apologies for the lack of clarity on that",
+          "depth": 1,
+          "sentiment": 0.03392857142857142
+        }
+      ],
+      "avg_sentiment": 0.1419642857142857
+    },
+    {
+      "block": [
+        {
+          "id": 43746498,
+          "author": "pbhjpbhj",
+          "text": "WhichYear 4&#x2F;20&#x2F;25\n4311 pts\n5\u20e3 avg. years off 6\u20e3  1\u20e3 5\u20e3 2\u20e3 <a href=\"https:&#x2F;&#x2F;whichyr.com\" rel=\"nofollow\">https:&#x2F;&#x2F;whichyr.com</a> Wordle opens (or used to) a mock modal dialog with a copy button for sharing the results. I feel like opening the modal rather than requiring clicking the &#x27;share&#x27; button probably leads to a lot more shares? I think I&#x27;d save a longer and just put &quot;WhichYr.com&quot; as the top line, bump the date and score to the next line.",
+          "depth": 0,
+          "sentiment": 0.3333333333333333
+        }
+      ],
+      "avg_sentiment": 0.3333333333333333
     },
     {
       "block": [],
@@ -860,50 +796,211 @@
     {
       "block": [
         {
-          "id": 43746616,
-          "author": "forrestthewoods",
-          "text": "&gt; When you execute code at compile time, on which machine does it execute? The natural answer is \u201con your machine\u201d, but it is wrong! I don\u2019t understand this. If I am cross-compiling a program is it not true that comptime code literally executes on my local host machine? Like, isn\u2019t that literally the definition of \u201ccompile-time\u201d? If there is an endian architecture change I could see Zig choosing to <i>emulate</i> the target machine on the host machine. This feels so wrong to me. HostPlatform and TargetPlatform can be different. That\u2019s fine! Hiding the host platform seems wrong. Can aomeone explain why you want to hide this seemingly critical fact? Don\u2019t get me wrong, I\u2019m 100% on board the cross-compile train. And Zig does it literally better than any other compiled language that I know. So what am I missing? Or wait. I guess the key is that, unlike Jai, comptime Zig code does NOT run at compile time. It merely refers to things that are KNOWN at compile time? Wait that\u2019s not right either. I\u2019m confused.",
+          "id": 43742071,
+          "author": "pndy",
+          "text": "I&#x27;ve got 4861 (top 2% ~3 years off) If someone likes additional challenge then Teuteuf Games&#x27; WhenTaken has both guessing the year and location: <a href=\"https:&#x2F;&#x2F;teuteuf.fr&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;teuteuf.fr&#x2F;</a> They also got Worldle which was covered on hn - <a href=\"https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=30367906\">https:&#x2F;&#x2F;news.ycombinator.com&#x2F;item?id=30367906</a>",
           "depth": 0,
-          "sentiment": -0.14982492997198876
+          "sentiment": 0.5
         },
         {
-          "id": 43746888,
-          "author": "int_19h",
-          "text": "The point is that something like sizeof(pointer) should have the same value in comptime code that it has at runtime for a given app. Which, yes, means that the comptime interpreter emulates the target machine. The reason is fairly simple: you want comptime code to be able to compute correct values for use at runtime. At the same time, there&#x27;s zero benefit to <i>not</i> hiding the host platform in comptime, because, well, what use case is there for knowing e.g. the size of pointer in the arch on which the compiler is running?",
+          "id": 43742358,
+          "author": "me_bx",
+          "text": "Yes, the extra challenge of having to guess the place really adds some fun in WhenTaken. Direct link to it: <a href=\"https:&#x2F;&#x2F;whentaken.com&#x2F;game\" rel=\"nofollow\">https:&#x2F;&#x2F;whentaken.com&#x2F;game</a>",
           "depth": 1,
-          "sentiment": 0.125
-        },
-        {
-          "id": 43747015,
-          "author": "forrestthewoods",
-          "text": "&gt; Which, yes, means that the comptime interpreter emulates the target machine. Reasonable if that\u2019s how it works. I had absolutely no idea that Zig comptime worked this way! &gt; there&#x27;s zero benefit to not hiding the host platform in comptime I don\u2019t think this is clear. It is possibly good to hide host platform given Zig\u2019s more limited comptime capabilities. However in my $DayJob an <i>extremely</i> common and painful source of issues is trying to hide host platform when it can not in fact be hidden.",
-          "depth": 2,
-          "sentiment": 0.015211640211640216
-        },
-        {
-          "id": 43747513,
-          "author": "int_19h",
-          "text": "Can you give an example of a use case where you <i>wouldn&#x27;t</i> want comptime behavior to match runtime, but instead expose host&#x2F;target differences?",
-          "depth": 3,
-          "sentiment": 0.0
-        },
-        {
-          "id": 43747584,
-          "author": "forrestthewoods",
-          "text": "Let\u2019s pretend I was writing some compile-time code that generates code. For example maybe I\u2019m generating serde code. Or maybe I\u2019m generating bindings for C, Python, etc. My generation code is probably going to allocate some memory and have some pointers and do some stuff. Why on earth would I want this compile-time code to run on an emulated version of the target platform? If I\u2019m on a 64-bit platform then pointers are 8-bytes why would I pretend they aren\u2019t? Even if the target is 32-bit? Does that make sense? If the compiletime code ONLY runs on the host platform then you plausibly need to expose both host and target. I\u2019m pretty sure I\u2019m thinking about zig comptime all wrong. Something isn\u2019t clicking.",
-          "depth": 4,
           "sentiment": 0.15
         }
       ],
-      "avg_sentiment": 0.028077342047930286
+      "avg_sentiment": 0.325
     },
     {
-      "block": [],
-      "avg_sentiment": 0
+      "block": [
+        {
+          "id": 43745918,
+          "author": "juancroldan",
+          "text": "Neat thing! I&#x27;m gonna add it to my round of daily games. I&#x27;d suggest changing &quot;Share results&quot; to some variation of &quot;Copy results&quot;. Share looks like it&#x27;s gonna open some sharing menu and deter people from playing (and hence promoting your game) WhichYear 4&#x2F;20&#x2F;25\n4142 pts (top 22%)\n7\u20e3 avg. years off 4\u20e3 6\u20e3 1\u20e3  2\u20e3 <a href=\"https:&#x2F;&#x2F;whichyr.com\" rel=\"nofollow\">https:&#x2F;&#x2F;whichyr.com</a>",
+          "depth": 0,
+          "sentiment": -0.020000000000000018
+        }
+      ],
+      "avg_sentiment": -0.020000000000000018
     },
     {
-      "block": [],
-      "avg_sentiment": 0
+      "block": [
+        {
+          "id": 43742274,
+          "author": "kzrdude",
+          "text": "Thanks, got very lucky in the sense that they were recognizable events mostly, except the ladies on the beach, so was 1.2 years off.",
+          "depth": 0,
+          "sentiment": 0.3458333333333333
+        },
+        {
+          "id": 43742317,
+          "author": "dmos62",
+          "text": "Agreed. The beach goers threw me too. (Spoiler) I was off by 20 years.",
+          "depth": 1,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43742446,
+          "author": "cs02rm0",
+          "text": "Likewise, 29 years out for that, everything else within a couple of years. Probably didn&#x27;t help that I&#x27;m not American so the cultural references aren&#x27;t there.",
+          "depth": 2,
+          "sentiment": 0.05
+        },
+        {
+          "id": 43742320,
+          "author": "telesilla",
+          "text": "As someone with interest in fashion and social politics, I got that photo year within 2 years difference. Many photos here are largely identifiable as political events but certainly helps to have a fashion background as others have commented in this thread.",
+          "depth": 1,
+          "sentiment": 0.16952380952380952
+        }
+      ],
+      "avg_sentiment": 0.14133928571428572
+    },
+    {
+      "block": [
+        {
+          "id": 43742498,
+          "author": "rubychill",
+          "text": "This was fun! Sent it through to my &quot;gamedle&quot; group chat and it&#x27;s probably going into my daily rotation. One thing though, the url in the share text doesn&#x27;t start with <a href=\"https:&#x2F;&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;</a> so it doesn&#x27;t turn into a clickable link when posted in some chat clients.",
+          "depth": 0,
+          "sentiment": 0.1875
+        },
+        {
+          "id": 43742528,
+          "author": "pngeez",
+          "text": "Ah this is really helpful, thanks!",
+          "depth": 1,
+          "sentiment": 0.225
+        },
+        {
+          "id": 43742662,
+          "author": "saaaaaam",
+          "text": "Also I think there\u2019s a bug when you view \u201cAll-time Stats\u201d. I\u2019ve only played once and in my first game I scored 3971 but it shows lifetime points of 7942 (which exactly double 3971) and 2 games played. Great game though, really good idea!",
+          "depth": 2,
+          "sentiment": 0.16071428571428573
+        }
+      ],
+      "avg_sentiment": 0.19107142857142856
+    },
+    {
+      "block": [
+        {
+          "id": 43747068,
+          "author": "mNovak",
+          "text": "Fun, though I&#x27;m apparently terrible at this -- avg 14 yr off. UI note: the statistics tab shows games played: 2 when I only played once, and the  lifetime points appears to be double my one game.",
+          "depth": 0,
+          "sentiment": -0.22000000000000003
+        }
+      ],
+      "avg_sentiment": -0.22000000000000003
+    },
+    {
+      "block": [
+        {
+          "id": 43744867,
+          "author": "karaterobot",
+          "text": "You know, this game pretty much demonstrates how fast cell phone addiction happened. You can tell the year by how many people are staring at their phones, and how big their phones are. You don&#x27;t see nearly as many people reading newspapers in old photos as there are people gormlessly staring into their phones in contemporary photos.",
+          "depth": 0,
+          "sentiment": 0.16851851851851854
+        }
+      ],
+      "avg_sentiment": 0.16851851851851854
+    },
+    {
+      "block": [
+        {
+          "id": 43745184,
+          "author": "alanvillalobos",
+          "text": "Nice game! Good UI experience. When sharing you get 4 different scores (points, top %, avg error, total error) I think. This is a little confusing, better to share one score (maybe plus total error, maybe) so people can more easily compete. 4 scores is too confusing.",
+          "depth": 0,
+          "sentiment": 0.14967948717948715
+        }
+      ],
+      "avg_sentiment": 0.14967948717948715
+    },
+    {
+      "block": [
+        {
+          "id": 43742492,
+          "author": "gblargg",
+          "text": "I wanted to play more but couldn&#x27;t find any way. Refresh page, no new game link, tried entering URL again. Checked but no cookies to delete. That&#x27;s one way to ensure I never visit the site again.",
+          "depth": 0,
+          "sentiment": 0.0106060606060606
+        },
+        {
+          "id": 43742548,
+          "author": "pngeez",
+          "text": "Hi, I made the game. Appreciate the feedback! Working on a mode that lets you play more right now.",
+          "depth": 1,
+          "sentiment": 0.09523809523809523
+        },
+        {
+          "id": 43742516,
+          "author": "k1kingy",
+          "text": "To be fair it&#x27;s a daily challenge. Try again tomorrow. But yes, I would love it if there were more game modes (similar to GeoGuessr)",
+          "depth": 1,
+          "sentiment": 0.21666666666666665
+        },
+        {
+          "id": 43747080,
+          "author": "gblargg",
+          "text": "I like things I can improve my skill on. This works by getting a stream of feedback as I study what I did and the errors I made, then try again with changes. Having only 5 rounds a day (assuming it resets each day) greatly limits this. This limitation seems more like an attempt to make me use it in a certain way (make it part of my daily routine). That&#x27;s off-putting. I wanted to sit there grinding over dozens of photos and watching my skill improve in real-time.",
+          "depth": 2,
+          "sentiment": 0.3028571428571428
+        }
+      ],
+      "avg_sentiment": 0.15634199134199134
+    },
+    {
+      "block": [
+        {
+          "id": 43742195,
+          "author": "satiric",
+          "text": "4878, avg 2.4 years off. Way better than I thought I&#x27;d do, I think I just got lucky. I agree that it&#x27;s a lot like chronophoto.app, but that also has freeplay. This has a nicer looking UI but I think a worse feature set. In particular the scroll-to-zoom and freeplay on chronophoto are nice to have. Edit: I had seen the photo in the subway before, or something very similar. It&#x27;s an interesting decision to use photos from big events that people might recognize. (Not inherently bad IMO, just not what I would have intuitively chosen)",
+          "depth": 0,
+          "sentiment": 0.1111111111111111
+        },
+        {
+          "id": 43742517,
+          "author": "pngeez",
+          "text": "Thanks! This is all super helpful. I\u2019m hoping to have something like Chronophoto\u2019s zoom working by tomorrow\u2019s game, and a freeplay-style mode is in the works too. Do you think it&#x27;s more satisfying to guess based on clues like tech, clothing, and photo quality, or when you recognize the historical event or era (assuming it\u2019s something a little less recognizable than that subway photo)?",
+          "depth": 1,
+          "sentiment": 0.11990740740740741
+        },
+        {
+          "id": 43745004,
+          "author": "satiric",
+          "text": "I think both are good, it&#x27;s nice to have variety. It was very satisfying as a user to think that the photo of all the people might be of the Egyptian revolution in 2011, then end up getting the year exactly right. Some photos are inherently gonna be easier to tell than others. Wartime photos can have a fun game of &quot;figure out which war it is based on the equipment&quot;. I think the problem with the subway photo is that it&#x27;s a very memorable situation, to use subway tunnels as shelters. But there are plenty of wartime photos that aren&#x27;t gonna be that way. I also like trying to figure out where the photo was taken, even if that isn&#x27;t strictly part of the game. So I&#x27;m glad that the photo caption is there.",
+          "depth": 2,
+          "sentiment": 0.3206349206349206
+        }
+      ],
+      "avg_sentiment": 0.18388447971781305
+    },
+    {
+      "block": [
+        {
+          "id": 43743651,
+          "author": "pieterr",
+          "text": "When I press &quot;All Times Stats&quot;, I see &quot;Games Played: 2&quot;. But I only played today. Off-by-one error?",
+          "depth": 0,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.0
+    },
+    {
+      "block": [
+        {
+          "id": 43746640,
+          "author": "logikblok",
+          "text": "WhichYear 4&#x2F;20&#x2F;25\n4361 pts (top 11%)\n6\u20e3 avg. years off 4\u20e3 6\u20e3 8\u20e3 7\u20e3 4\u20e3 <a href=\"https:&#x2F;&#x2F;whichyr.com\" rel=\"nofollow\">https:&#x2F;&#x2F;whichyr.com</a>",
+          "depth": 0,
+          "sentiment": 0.5
+        }
+      ],
+      "avg_sentiment": 0.5
     },
     {
       "block": [],
@@ -912,14 +1009,712 @@
     {
       "block": [
         {
-          "id": 43744862,
-          "author": "gitroom",
-          "text": "Cool!",
+          "id": 43745446,
+          "author": "almosthere",
+          "text": "5.2 years average off. The first was a dance club in the 70s, I guessed 78, but it was 79... There was one where nudists where taking off their clothes, I guessed 50s but it was 1934!!!",
           "depth": 0,
-          "sentiment": 0.4375
+          "sentiment": 0.169140625
+        },
+        {
+          "id": 43747760,
+          "author": "xeromal",
+          "text": "Ya, I guessed the 50s too! So early!",
+          "depth": 1,
+          "sentiment": 0.125
         }
       ],
-      "avg_sentiment": 0.4375
+      "avg_sentiment": 0.1470703125
+    },
+    {
+      "block": [
+        {
+          "id": 43743563,
+          "author": "Waterluvian",
+          "text": "I love this idea so much and would make this one of my daily games. FWIW: The jankiness of the slider feels quite jarring, given it\u2019s the sole interactive element. It makes the thing difficult to stick with.  On my iPhone 12, it lags way behind and the numbers update at like 10fps. I really hope this keeps getting daily images added.",
+          "depth": 0,
+          "sentiment": -6.938893903907228e-18
+        },
+        {
+          "id": 43743578,
+          "author": "kwertyoowiyop",
+          "text": "Also laggy on my iPad Air.",
+          "depth": 1,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": -3.469446951953614e-18
+    },
+    {
+      "block": [
+        {
+          "id": 43741932,
+          "author": "Jolter",
+          "text": "This is exactly the same game as chronophoto.app, as far as I can tell, except with way better UX and as a \u201cdaily challenge\u201d type game. Well done, anyway! It\u2019s a fun game.",
+          "depth": 0,
+          "sentiment": -0.016666666666666677
+        }
+      ],
+      "avg_sentiment": -0.016666666666666677
+    },
+    {
+      "block": [
+        {
+          "id": 43744089,
+          "author": "johnsillings",
+          "text": "I love this! Small bit of feedback that \u2013 after expanding an image \u2013 it&#x27;d be nice to more easily collapse it and return to the game screen. Maybe by pressing escape on the keyboard and&#x2F;or clicking on the image.",
+          "depth": 0,
+          "sentiment": 0.2513888888888889
+        }
+      ],
+      "avg_sentiment": 0.2513888888888889
+    },
+    {
+      "block": [
+        {
+          "id": 43746307,
+          "author": "icemelt8",
+          "text": "Score: \n4246 pts\n6 avg. years off I am not american or native english speaker or never have been outside Asia",
+          "depth": 0,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.0
+    },
+    {
+      "block": [
+        {
+          "id": 43743491,
+          "author": "aulisius",
+          "text": "3121 pts, 14 avg. years off. Decent try considering most of the options were USA specific.",
+          "depth": 0,
+          "sentiment": 0.2222222222222222
+        }
+      ],
+      "avg_sentiment": 0.2222222222222222
+    },
+    {
+      "block": [
+        {
+          "id": 43742035,
+          "author": "meatjuice",
+          "text": "Very fun, but I&#x27;m horrible at this WhichYear 4&#x2F;20&#x2F;25\n3045 pts\n13 avg. years off <pre><code>       4\u20e3\n</code></pre>\nwhichyr.com",
+          "depth": 0,
+          "sentiment": -0.305
+        },
+        {
+          "id": 43742381,
+          "author": "omneity",
+          "text": "I thought hackernews strips out emojis, interesting.",
+          "depth": 1,
+          "sentiment": 0.5
+        },
+        {
+          "id": 43742794,
+          "author": "naitgacem",
+          "text": "There are indeed no emojis on that comment for me, are you using a different client?",
+          "depth": 2,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43742846,
+          "author": "omneity",
+          "text": "I can actually see the emoji for number 4 on iOS Safari. It\u2019s in the 3rd line, the one before the website url (penultimate).",
+          "depth": 3,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43743054,
+          "author": "naitgacem",
+          "text": "On Firefox Windows I see the number 4 with some line over it.",
+          "depth": 4,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.039
+    },
+    {
+      "block": [
+        {
+          "id": 43742607,
+          "author": "8474_s",
+          "text": "This is interesting concept, if there was more variety it could be some like timeguessr.",
+          "depth": 0,
+          "sentiment": 0.5
+        }
+      ],
+      "avg_sentiment": 0.5
+    },
+    {
+      "block": [
+        {
+          "id": 43746945,
+          "author": "wileydragonfly",
+          "text": "Styles haven\u2019t changed that much since jeans and a tshirt",
+          "depth": 0,
+          "sentiment": 0.2
+        }
+      ],
+      "avg_sentiment": 0.2
+    },
+    {
+      "block": [
+        {
+          "id": 43743311,
+          "author": "eqvinox",
+          "text": "If you grab statistics per photo rather than the whole thing, and maybe do rough client geolocation, you can turn this into a sociological study and publish a paper about it\u2026",
+          "depth": 0,
+          "sentiment": 0.05
+        }
+      ],
+      "avg_sentiment": 0.05
+    },
+    {
+      "block": [
+        {
+          "id": 43743548,
+          "author": "goldfishgold",
+          "text": "I created a similar game a few years ago for guessing the year of an object in the Met\u2019s collection. Would love any feedback if people want to try it.",
+          "depth": 0,
+          "sentiment": -0.025000000000000022
+        },
+        {
+          "id": 43743603,
+          "author": "brador",
+          "text": "What is Mets collection?",
+          "depth": 1,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43744047,
+          "author": "slig",
+          "text": "I&#x27;d guess The Met [1] [1]: <a href=\"https:&#x2F;&#x2F;www.metmuseum.org&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;www.metmuseum.org&#x2F;</a>",
+          "depth": 2,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": -0.00833333333333334
+    },
+    {
+      "block": [
+        {
+          "id": 43744585,
+          "author": "js4ever",
+          "text": "ChatGPT 4o guessed perfectly 8 in a row!",
+          "depth": 0,
+          "sentiment": 1.0
+        }
+      ],
+      "avg_sentiment": 1.0
+    },
+    {
+      "block": [
+        {
+          "id": 43742370,
+          "author": "alcover",
+          "text": "4920 here. Waiting for contenders ;) More seriously I often wonder how this works in the brain when there is no obvious historical clue. Is it akin to guessing a numerical quantity (like when seeing a crowd) ?",
+          "depth": 0,
+          "sentiment": 0.08333333333333334
+        }
+      ],
+      "avg_sentiment": 0.08333333333333334
+    },
+    {
+      "block": [
+        {
+          "id": 43742133,
+          "author": "j1elo",
+          "text": "What do the last emoji numbers mean when you share your results? Below my points, and how many avg  years off, I got a dartboard, then &quot;6&quot;, &quot;3&quot;, emoji of a blind man walking, then &quot;6&quot;.",
+          "depth": 0,
+          "sentiment": -0.078125
+        },
+        {
+          "id": 43742369,
+          "author": "tetha",
+          "text": "I think those indicate how far off that guess was. I have a dartboard when I guessed the year exactly right, numbers 1 and 3 matching these years off, and a blind man for &gt;10 years off or around there.",
+          "depth": 1,
+          "sentiment": -0.038095238095238106
+        },
+        {
+          "id": 43745042,
+          "author": "j1elo",
+          "text": "Yes, I confirmed it with the results from other friends. Very unintuitive, though. Just saying &quot;Accuracy:&quot; before the emojis, would give a good enough hint of what those mean.",
+          "depth": 2,
+          "sentiment": 0.14375000000000002
+        },
+        {
+          "id": 43742960,
+          "author": "aweiher",
+          "text": "Using the blind man with probing cane emoji to signify losing in a game is really disappointing",
+          "depth": 1,
+          "sentiment": -0.5
+        }
+      ],
+      "avg_sentiment": -0.11811755952380952
+    },
+    {
+      "block": [
+        {
+          "id": 43742782,
+          "author": "xg15",
+          "text": "I guess I&#x27;m getting a bit paranoid, but whenever I see a game like this, my first suspicion is that it&#x27;s just a trainset annotation UI in disguise.",
+          "depth": 0,
+          "sentiment": -0.07500000000000001
+        },
+        {
+          "id": 43742790,
+          "author": "rightbyte",
+          "text": "Nah seems like pictures choosen for this purpose? Or do you mean they will sneak in a picture with an unknown date every now and then to good estimators?",
+          "depth": 1,
+          "sentiment": 0.09583333333333333
+        },
+        {
+          "id": 43742837,
+          "author": "xg15",
+          "text": "Something like this, pretty much.",
+          "depth": 2,
+          "sentiment": 0.225
+        },
+        {
+          "id": 43742989,
+          "author": "asdf12341",
+          "text": "I doubt why they need to, these photos are all from newspaper which already have the date.",
+          "depth": 3,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43743016,
+          "author": "xg15",
+          "text": "Eh, we already had a discussion a few days ago about people using AI to effortlessly geolocate photos. That&#x27;s the &quot;where&quot;. I could see a model that also provides the &quot;when&quot; as useful for a lot of purposes.",
+          "depth": 4,
+          "sentiment": 0.04999999999999999
+        }
+      ],
+      "avg_sentiment": 0.059166666666666666
+    },
+    {
+      "block": [
+        {
+          "id": 43742123,
+          "author": "uxcolumbo",
+          "text": "Fun game. Suggestions: Make the logo clickable so it goes to the homepage On the sharing stats page, add a link to start the game, e.g. if I send the link to someone to challenge my score, there needs to be an easy way to start the game.",
+          "depth": 0,
+          "sentiment": -0.09333333333333334
+        }
+      ],
+      "avg_sentiment": -0.09333333333333334
+    },
+    {
+      "block": [
+        {
+          "id": 43741878,
+          "author": "pekim",
+          "text": "That was fun. I got a score of 4174, and an average of 6.2 years off. Clothes and hair styles were quite helpful in 3 of the pictures. I&#x27;ll definitely take a look at it tomorrow.",
+          "depth": 0,
+          "sentiment": 0.049999999999999996
+        }
+      ],
+      "avg_sentiment": 0.049999999999999996
+    },
+    {
+      "block": [
+        {
+          "id": 43742505,
+          "author": "tiberius_p",
+          "text": "This is a great way to gather labeled training data for a neural network that can guess in which year a photo was taken.",
+          "depth": 0,
+          "sentiment": 0.8
+        },
+        {
+          "id": 43742535,
+          "author": "krisoft",
+          "text": "A photo archive with actual correct date labels is even better (the thing which this game is built on.)",
+          "depth": 1,
+          "sentiment": 0.033333333333333326
+        }
+      ],
+      "avg_sentiment": 0.4166666666666667
+    },
+    {
+      "block": [
+        {
+          "id": 43742738,
+          "author": "jillesvangurp",
+          "text": "Nice idea. I was 6 years off on average. Probably something the new AI models might be very good at.",
+          "depth": 0,
+          "sentiment": 0.37409090909090903
+        }
+      ],
+      "avg_sentiment": 0.37409090909090903
+    },
+    {
+      "block": [
+        {
+          "id": 43745533,
+          "author": "bijant",
+          "text": "o3 got a SCORE AVG.4989 YEARS OFF 0.2 TOP 0%",
+          "depth": 0,
+          "sentiment": 0.5
+        }
+      ],
+      "avg_sentiment": 0.5
+    },
+    {
+      "block": [
+        {
+          "id": 43744481,
+          "author": "aae42",
+          "text": "ripoff of <a href=\"https:&#x2F;&#x2F;www.chronophoto.app\" rel=\"nofollow\">https:&#x2F;&#x2F;www.chronophoto.app</a> ? it&#x27;s really fun&#x2F;simple so can&#x27;t feel too bad",
+          "depth": 0,
+          "sentiment": -0.24999999999999992
+        }
+      ],
+      "avg_sentiment": -0.24999999999999992
+    },
+    {
+      "block": [
+        {
+          "id": 43748015,
+          "author": "BolexNOLA",
+          "text": "Man I am <i>in love</i>. The global leaderboard is inspired!",
+          "depth": 0,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.0
+    },
+    {
+      "block": [
+        {
+          "id": 43743978,
+          "author": "frogarden",
+          "text": "4902, 2% off. I like how you&#x27;ve created a guess distribution",
+          "depth": 0,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.0
+    },
+    {
+      "block": [
+        {
+          "id": 43743501,
+          "author": "rafram",
+          "text": "Definitely the most polished game of this sort that I\u2019ve seen. Nice work!",
+          "depth": 0,
+          "sentiment": 0.2125
+        }
+      ],
+      "avg_sentiment": 0.2125
+    },
+    {
+      "block": [
+        {
+          "id": 43747984,
+          "author": "system2",
+          "text": "I don&#x27;t understand this site&#x27;s &quot;come back tomorrow&quot; part. Wouldn&#x27;t it be better to let people play as long as they want?!",
+          "depth": 0,
+          "sentiment": 0.14583333333333334
+        }
+      ],
+      "avg_sentiment": 0.14583333333333334
+    },
+    {
+      "block": [
+        {
+          "id": 43744539,
+          "author": "kelvinjps10",
+          "text": "I feel dumb, I can&#x27;t figure out  how to play again",
+          "depth": 0,
+          "sentiment": -0.375
+        }
+      ],
+      "avg_sentiment": -0.375
+    },
+    {
+      "block": [
+        {
+          "id": 43743446,
+          "author": "Vinonasg",
+          "text": "Guessing the year each photo was taken can be surprisingly accurate when you observe changes in technology, fashion, or even product developments visible in the background.",
+          "depth": 0,
+          "sentiment": 0.4000000000000001
+        }
+      ],
+      "avg_sentiment": 0.4000000000000001
+    },
+    {
+      "block": [
+        {
+          "id": 43742420,
+          "author": "ratatoskrt",
+          "text": "Very clever idea! This was fun!",
+          "depth": 0,
+          "sentiment": 0.3229166666666667
+        }
+      ],
+      "avg_sentiment": 0.3229166666666667
+    },
+    {
+      "block": [
+        {
+          "id": 43742297,
+          "author": "djmips",
+          "text": "I did OK, didn&#x27;t try to hard but was surprised at how good people are at this!",
+          "depth": 0,
+          "sentiment": 0.29583333333333334
+        }
+      ],
+      "avg_sentiment": 0.29583333333333334
+    },
+    {
+      "block": [
+        {
+          "id": 43742226,
+          "author": "atoav",
+          "text": "A fun (hard) addition to that would be the color photography by Sergey Prokusin-Gorsky because the picture quality is so out of its time (~1900)\n <a href=\"https:&#x2F;&#x2F;en.m.wikipedia.org&#x2F;wiki&#x2F;Sergey_Prokudin-Gorsky#Gallery\" rel=\"nofollow\">https:&#x2F;&#x2F;en.m.wikipedia.org&#x2F;wiki&#x2F;Sergey_Prokudin-Gorsky#Galle...</a>",
+          "depth": 0,
+          "sentiment": 0.004166666666666652
+        },
+        {
+          "id": 43743627,
+          "author": "pyfon",
+          "text": "Oof what! They are like a modern phone camera almost. Much better than 80s film cameras. A lot of work must have gone into that.",
+          "depth": 1,
+          "sentiment": 0.35
+        }
+      ],
+      "avg_sentiment": 0.17708333333333331
+    },
+    {
+      "block": [
+        {
+          "id": 43741955,
+          "author": "codecutter",
+          "text": "This is really fun. My score was 4307 (top 12%) with average 5.8 years off.",
+          "depth": 0,
+          "sentiment": 0.21666666666666667
+        }
+      ],
+      "avg_sentiment": 0.21666666666666667
+    },
+    {
+      "block": [
+        {
+          "id": 43743204,
+          "author": "rimbo789",
+          "text": "WhichYear 4&#x2F;20&#x2F;25\n4215 pts (top 17%)\n6\u20e3 avg. years off 3\u20e3  1\u20e3   8\u20e3 whichyr.com",
+          "depth": 0,
+          "sentiment": 0.5
+        }
+      ],
+      "avg_sentiment": 0.5
+    },
+    {
+      "block": [
+        {
+          "id": 43742881,
+          "author": "dbcooper",
+          "text": "WhichYear 4&#x2F;20&#x2F;25\n4939 pts (top 1%)\n1\u20e3 avg. years off 2\u20e3 1\u20e3 1\u20e3 1\u20e3 1\u20e3 whichyr.com",
+          "depth": 0,
+          "sentiment": 0.5
+        }
+      ],
+      "avg_sentiment": 0.5
+    },
+    {
+      "block": [
+        {
+          "id": 43742796,
+          "author": "ashish1dev",
+          "text": "Tried this, it is very addictive game, good job team !",
+          "depth": 0,
+          "sentiment": 0.15833333333333333
+        }
+      ],
+      "avg_sentiment": 0.15833333333333333
+    },
+    {
+      "block": [
+        {
+          "id": 43717192,
+          "author": "dtagames",
+          "text": "This is fun! Thanks for the post. I got a score of 3740 and an average of 10 years off.",
+          "depth": 0,
+          "sentiment": 0.14166666666666664
+        }
+      ],
+      "avg_sentiment": 0.14166666666666664
+    },
+    {
+      "block": [
+        {
+          "id": 43742882,
+          "author": "thih9",
+          "text": "Does it have only one set of photos per day?",
+          "depth": 0,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.0
+    },
+    {
+      "block": [
+        {
+          "id": 43742615,
+          "author": "NehalNetha",
+          "text": "would be so fun if it has a multiplayer mode",
+          "depth": 0,
+          "sentiment": 0.3
+        }
+      ],
+      "avg_sentiment": 0.3
+    },
+    {
+      "block": [
+        {
+          "id": 43743560,
+          "author": "davidfdriscoll",
+          "text": "I created a similar game a couple years ago for guessing the year of an object in the Met\u2019s collection. Would love any feedback if people want to try it. <a href=\"https:&#x2F;&#x2F;davidfdriscoll.github.io&#x2F;met-chronoguesser&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;davidfdriscoll.github.io&#x2F;met-chronoguesser&#x2F;</a>",
+          "depth": 0,
+          "sentiment": 0.033333333333333326
+        }
+      ],
+      "avg_sentiment": 0.033333333333333326
+    },
+    {
+      "block": [
+        {
+          "id": 43742543,
+          "author": "ChrisNorstrom",
+          "text": "Here&#x27;s another one for guessing ethnicities <a href=\"https:&#x2F;&#x2F;hbd.gg&#x2F;play&#x2F;\" rel=\"nofollow\">https:&#x2F;&#x2F;hbd.gg&#x2F;play&#x2F;</a>",
+          "depth": 0,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.0
+    },
+    {
+      "block": [
+        {
+          "id": 43742797,
+          "author": "ashish1dev",
+          "text": "tried this game, it is very addictive, good job team !",
+          "depth": 0,
+          "sentiment": 0.15833333333333333
+        }
+      ],
+      "avg_sentiment": 0.15833333333333333
+    },
+    {
+      "block": [
+        {
+          "id": 43745126,
+          "author": "hnpolicestate",
+          "text": "I love this stuff. I was always good at guessing song, movie or photo years.",
+          "depth": 0,
+          "sentiment": 0.6
+        }
+      ],
+      "avg_sentiment": 0.6
+    },
+    {
+      "block": [
+        {
+          "id": 43741933,
+          "author": "fsargent",
+          "text": "Now is there anything which will take this, run it through ML and then find a date for all of my scanned family photos?",
+          "depth": 0,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.0
+    },
+    {
+      "block": [
+        {
+          "id": 43744390,
+          "author": "BMc2020",
+          "text": "Score 3433 Avg. Years Off 12.2",
+          "depth": 0,
+          "sentiment": 0.0
+        },
+        {
+          "id": 43744414,
+          "author": "navigate8310",
+          "text": "Score 4266 Avg. Years Off 5.2",
+          "depth": 1,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.0
+    },
+    {
+      "block": [
+        {
+          "id": 43743553,
+          "author": "bbarnett",
+          "text": "I tried playing again, but how?!  I am presented with the last play stats, but see no way to play again. I can share, or get all time stats.  That&#x27;s all.",
+          "depth": 0,
+          "sentiment": 0.0
+        }
+      ],
+      "avg_sentiment": 0.0
+    },
+    {
+      "block": [
+        {
+          "id": 43742029,
+          "author": "nurina",
+          "text": "This was fun",
+          "depth": 0,
+          "sentiment": 0.3
+        }
+      ],
+      "avg_sentiment": 0.3
+    },
+    {
+      "block": [],
+      "avg_sentiment": 0
+    },
+    {
+      "block": [
+        {
+          "id": 43741842,
+          "author": "MisterBastahrd",
+          "text": "7.2 years off on average. First 3 were 3, 1, and 1 year off respectively. Last two blew my momentum.",
+          "depth": 0,
+          "sentiment": 0.03333333333333333
+        }
+      ],
+      "avg_sentiment": 0.03333333333333333
+    },
+    {
+      "block": [
+        {
+          "id": 43742718,
+          "author": "sudofoo",
+          "text": "This was fun!",
+          "depth": 0,
+          "sentiment": 0.375
+        }
+      ],
+      "avg_sentiment": 0.375
+    },
+    {
+      "block": [
+        {
+          "id": 43745292,
+          "author": "xyst",
+          "text": "geoguessr clones&#x2F;copies are so hot rn. Cool idea, m8. I ended up just looking at clothing and fashion choices. Although black and white photos do tend to represent historical era (ie, holocaust, ww2)",
+          "depth": 0,
+          "sentiment": 0.08666666666666667
+        }
+      ],
+      "avg_sentiment": 0.08666666666666667
+    },
+    {
+      "block": [],
+      "avg_sentiment": 0
     }
   ]
 }

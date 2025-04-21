@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, redirect, url_for
+from bs4 import BeautifulSoup
 import requests
 import subprocess
 import json
@@ -11,24 +12,43 @@ app = Flask(__name__)
 def index():
     return render_template("index.html")
 
-# Step 2: Show Hacker News articles
+
 @app.route("/articles")
 def articles():
-    top_stories_url = "https://hacker-news.firebaseio.com/v0/topstories.json"
-    story_ids = requests.get(top_stories_url).json()[:10]  # top 10
+    index_url = request.args.get("index_url")
+    if not index_url:
+        return "No index URL provided.", 400
+
+    try:
+        page = requests.get(index_url)
+        soup = BeautifulSoup(page.text, "html.parser")
+        links = soup.find_all("a", href=True)
+        story_ids = []
+
+        for a in links:
+            href = a["href"]
+            if href.startswith("item?id="):
+                story_id = href.split("id=")[1]
+                if story_id not in story_ids:
+                    story_ids.append(story_id)
+        story_ids = story_ids[:10]  # top 10
+    except Exception as e:
+        return f"Failed to parse index page: {e}", 500
+
+    # Now fetch story metadata from HN API
     stories = []
-    for story_id in story_ids:
-        data = requests.get(f"https://hacker-news.firebaseio.com/v0/item/{story_id}.json").json()
-        if data and data.get("type") == "story" and "title" in data:
+    for sid in story_ids:
+        data = requests.get(f"https://hacker-news.firebaseio.com/v0/item/{sid}.json").json()
+        if data and "title" in data:
             stories.append({
                 "id": data["id"],
                 "title": data["title"],
                 "by": data.get("by", "unknown"),
                 "descendants": data.get("descendants", 0)
             })
-    return render_template("articles.html", stories=stories)
 
-# Step 3: Scrape the article by ID
+    return render_template("articles.html", stories=stories)# Step 3: Scrape the article by ID
+
 @app.route("/scrape")
 def scrape():
     story_id = request.args.get("id")
