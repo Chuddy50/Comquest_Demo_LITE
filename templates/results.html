@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+    <title>Scrape Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .comment {
+            margin-bottom: 20px;
+            padding-left: 10px;
+            border-left: 2px solid #ccc;
+        }
+        form {
+            display: inline;
+            margin-right: 10px;
+        }
+        button {
+            padding: 6px 12px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>{{ story.title }}</h1>
+    <p><strong>By:</strong> {{ story.by }}</p>
+    <p><strong>URL:</strong> <a href="{{ story.url }}">{{ story.url }}</a></p>
+    <form action="/export" method="get" style="display: inline;">
+        <button type="submit">📁 Export Comments (CSV)</button>
+    </form>
+
+    <form action="/" method="get">
+        <button type="submit">🔙 Back to Search</button>
+    </form>
+
+    <h2>{{ sentiment_summary }}</h2>
+    
+    <p>Total Comments: {{ story.blocks | length }}</p>
+    {% if top_block %}
+        <p>🔥 Most Positive Block: {{ "%.2f"|format(top_block.avg_sentiment) }}</p>
+    {% endif %}
+    {% if bottom_block %}
+        <p>🧊 Most Negative Block: {{ "%.2f"|format(bottom_block.avg_sentiment) }}</p>
+    {% endif %}
+
+
+
+    <form method="get">
+        <input type="hidden" name="filter" value="positive">
+        <button type="submit">Show Positive Only</button>
+    </form>
+    <form method="get">
+        <input type="hidden" name="filter" value="negative">
+        <button type="submit">Show Negative Only</button>
+    </form>
+    <form method="get">
+        <button type="submit">Show All</button>
+    </form>
+
+    <h3>Comment Blocks:</h3>
+    <ul>
+        {% for block in story.blocks %}
+            {% if (filter == 'positive' and block.avg_sentiment > 0.05)
+               or (filter == 'negative' and block.avg_sentiment < -0.05)
+               or (not filter) %}
+            <li>
+                {% set color = "gray" %}
+                {% if block.avg_sentiment > 0.05 %}
+                  {% set color = "green" %}
+                {% elif block.avg_sentiment < -0.05 %}
+                  {% set color = "red" %}
+                {% endif %}
+                <strong style="color: {{ color }};">
+                Block Sentiment: {{ "%.2f"|format(block.avg_sentiment) }}
+</strong>
+
+                <ul>
+                    {% for comment in block.block %}
+                    <li class="comment" style="margin-left: {{ comment.depth * 20 }}px;">
+                        <strong>{{ comment.author }}</strong>
+                        (Sentiment: {{ "%.2f"|format(comment.sentiment) }})<br/>
+                        {{ comment.text|safe }}
+                    </li>
+                    {% endfor %}
+                </ul>
+            </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

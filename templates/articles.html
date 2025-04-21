@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hacker News Articles</title>
+</head>
+<body>
+    <h1>Select an Article to Scrape</h1>
+    <ul>
+        {% for story in stories %}
+        <li>
+            <strong>{{ story.title }}</strong> by {{ story.by }} ({{ story.descendants }} comments)
+            <form action="/scrape" method="get" style="display:inline;">
+                <input type="hidden" name="id" value="{{ story.id }}">
+                <button type="submit">Scrape Site</button>
+            </form>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
