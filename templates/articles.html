@@ -1,20 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Hacker News Articles</title>
+    <title>Select an Article</title>
 </head>
 <body>
-    <h1>Select an Article to Scrape</h1>
-    <ul>
-        {% for story in stories %}
+
+<!-- Task Header Bar -->
+<div style="background:#f0f0f0; padding: 10px; margin-bottom: 20px;">
+    <strong>Current Task:</strong> {{ source_name }}
+    <form action="/" method="get" style="display:inline; float:right;">
+        <button type="submit">+ Scrape Another Site</button>
+    </form>
+</div>
+
+<h1>Top 20 Articles from {{ source_name }}</h1>
+
+<ul>
+    {% for story in stories %}
         <li>
-            <strong>{{ story.title }}</strong> by {{ story.by }} ({{ story.descendants }} comments)
-            <form action="/scrape" method="get" style="display:inline;">
-                <input type="hidden" name="id" value="{{ story.id }}">
+            <strong>{{ story.title }}</strong> by {{ story.by }}
+            <em>({{ story.descendants }} comments)</em>
+            <form action="/scrape" method="post" style="display:inline;">
+                <input type="hidden" name="story_id" value="{{ story.id }}">
                 <button type="submit">Scrape Site</button>
             </form>
         </li>
-        {% endfor %}
-    </ul>
+    {% endfor %}
+</ul>
+
 </body>
 </html>
