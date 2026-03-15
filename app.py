@@ -93,7 +93,7 @@ def results():
     top_block = max(blocks, key=lambda b: b["avg_sentiment"], default=None)
     bottom_block = min(blocks, key=lambda b: b["avg_sentiment"], default=None)
 
-    # ✅ Get the source name for the task header bar
+    #  Get the source name for the task header bar
     from urllib.parse import urlparse
     source_name = urlparse(current_task_source).netloc if current_task_source else "Hacker News"
 
@@ -104,7 +104,7 @@ def results():
         filter=request.args.get("filter"),
         top_block=top_block,
         bottom_block=bottom_block,
-        source_name=source_name  # ✅ pass this to the template
+        source_name=source_name  #  pass this to the template
     )
 
 @app.route("/export")
